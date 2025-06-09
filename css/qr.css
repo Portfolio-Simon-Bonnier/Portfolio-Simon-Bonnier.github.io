@@ -1,0 +1,12 @@
+/* QR code visible only on desktop */
+.qr-desktop {
+  display: block;
+  margin: 0 auto 24px auto;
+  width: 120px;
+  max-width: 30vw;
+}
+@media (max-width: 977px) {
+  .qr-desktop {
+    display: none;
+  }
+}

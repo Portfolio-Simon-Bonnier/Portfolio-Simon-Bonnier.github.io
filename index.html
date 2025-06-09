@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="css/qr.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
@@ -70,6 +71,8 @@
           data-aos-duration="1000"
         >
           <div class="hero-content">
+            <!-- QR code visible uniquement sur ordinateur -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=mailto:simon.bonnier5@gmail.com" alt="QR Code Email Simon Bonnier" class="qr-desktop" />
             <span class="hero-greeting">Bonjour, je suis</span>
             <h1 class="hero-heading">Simon Bonnier</h1>
             <span class="hero-heading-subtitle"
