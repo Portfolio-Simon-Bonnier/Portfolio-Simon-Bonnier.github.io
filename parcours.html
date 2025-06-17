@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Parcours BDMRC – Carte mentale</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #f0f2f5; margin: 0; padding: 2em; }
+    h1 { text-align: center; margin-bottom: 0.5em; }
+    .mindmap { position: relative; width: 100%; max-width: 900px; height: 520px; margin: 0 auto; margin-top: 2em; }
+    .node { position: absolute; border-radius: 32px; font-weight: 600; text-align: center; box-shadow: 0 2px 12px rgba(249,168,37,0.10); padding: 0.7em 1.5em; font-size: 1.08em; transition: transform 0.15s; }
+    .node.central { font-size: 1.25em; border-radius: 40px; box-shadow: 0 4px 24px rgba(249,168,37,0.18); }
+    .node:hover { transform: scale(1.05); z-index: 2; }
+    .node.central { background: #fbc02d; color: #222; }
+    .node.b2, .node.b3, .node.b4, .node.b5 { background: #f9a825; color: #222; }
+    .b1 { top: 220px; left: 370px; }
+    .b2 { top: 80px; left: 200px; }
+    .b3 { top: 80px; left: 600px; }
+    .b4 { top: 400px; left: 200px; }
+    .b5 { top: 400px; left: 600px; }
+  </style>
+</head>
+<body style="position:relative;">
+    <img src="img/logoujm.png" alt="Logo UJM" style="position:fixed;z-index:0;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0.08;max-width:80vw;max-height:80vh;pointer-events:none;user-select:none;" />
+    <img src="img/logoujm.png" alt="Logo UJM gauche" style="position:fixed;z-index:0;left:0;top:50%;transform:translateY(-50%);opacity:0.10;max-width:18vw;max-height:60vh;pointer-events:none;user-select:none;" />
+    <img src="img/logoujm.png" alt="Logo UJM droite" style="position:fixed;z-index:0;right:0;top:50%;transform:translateY(-50%);opacity:0.10;max-width:18vw;max-height:60vh;pointer-events:none;user-select:none;" />
+    <div class="container" style="max-width:900px;margin:0 auto;padding:32px 16px;position:relative;z-index:1;">
+      <h1 style="text-align:center;color:#f9a825;font-size:2.1rem;font-weight:800;margin-bottom:1.5em;">Parcours BDMRC</h1>
+      <div class="bloc-parcours" style="background:#fffbe5;border-radius:18px;box-shadow:0 2px 12px #fbc02d33;padding:2.2rem 1.5rem;margin-bottom:2.5em;">
+        <div style="font-size:1.18em;font-weight:700;color:#b8860b;margin-bottom:0.7em;"><span style="font-weight:700;font-size:1.18em;">1.</span> <a href="experience2.html" style="color:#b8860b;text-decoration:underline;">Gérer et fidéliser la clientèle dans une logique de partenariat</a></div>
+        <div style="font-size:1.05em;margin-bottom:0.7em;"><span style="font-weight:700;">Objectif :</span> Entretenir une relation de confiance et de proximité avec les clients afin de les satisfaire, les sécuriser et les fidéliser.</div>
+        <div style="margin-bottom:0.7em;"><span style="font-weight:700;">Preuve principale :</span> <a href="experience2.html" style="color:#b8860b;text-decoration:underline;">Stage au Crédit Agricole</a><br>J’ai été pleinement impliqué dans la gestion de la relation client au quotidien.</div>
+        <ul style="margin-bottom:0.7em;">
+          <li><strong>Accueil physique et téléphonique :</strong> prise en charge des demandes, écoute active, reformulation des besoins.</li>
+        </ul>
+        <div style="font-size:1.01em;">Cette relation fluide, rigoureuse et humaine a permis à l’agence de renforcer la qualité de service et de consolider la fidélité des clients.</div>
+      </div>
+      <div class="bloc-parcours" style="background:#fffbe5;border-radius:18px;box-shadow:0 2px 12px #fbc02d33;padding:2.2rem 1.5rem;margin-bottom:2.5em;">
+        <div style="font-size:1.18em;font-weight:700;color:#b8860b;margin-bottom:0.7em;">2. Piloter la performance commerciale</div>
+        <div style="font-size:1.05em;margin-bottom:0.7em;"><span style="font-weight:700;">Objectif :</span> Suivre les résultats commerciaux à l’aide d’indicateurs clés, analyser les écarts et adapter la stratégie en conséquence.</div>
+        <div style="margin-bottom:0.7em;"><span style="font-weight:700;">Preuve principale :</span> <a href="img/saecreasim.png" target="_blank" style="color:#b8860b;text-decoration:underline;">SAÉ CréaSim</a><br>Dans le cadre de cette simulation de gestion commerciale, j’ai été amené à :</div>
+        <ul style="margin-bottom:0.7em;">
+          <li>Analyser des tableaux de bord hebdomadaires : CA, part de marché, rentabilité.</li>
+          <li>Définir des actions correctives pour améliorer les résultats (répartition du budget marketing, gestion des stocks, choix des canaux de distribution).</li>
+          <li>Mettre en place une stratégie progressive et ajustée selon les données du marché virtuel.</li>
+        </ul>
+        <div style="font-size:1.01em;">Cela m’a permis de comprendre le lien entre stratégie, décision et performance, et d’acquérir des réflexes d’ajustement commercial basés sur des indicateurs concrets.</div>
+      </div>
+    </div>
+  </body>
+</html>

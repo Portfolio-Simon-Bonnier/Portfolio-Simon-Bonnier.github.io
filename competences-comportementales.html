@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétences comportementales – Simon Bonnier</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body { background: #f7f7f7; font-family: 'Segoe UI', Arial, sans-serif; color: #111; margin: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 32px 16px; }
+    h1 { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; color: #007b5e; letter-spacing: 1px; }
+    .orbital-section {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto 2.5rem auto;
+      aspect-ratio: 1/1;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e6f2ed 0%, #f7f7f7 100%);
+      border-radius: 50%;
+      box-shadow: 0 8px 32px #007b5e22;
+      overflow: visible;
+    }
+    .orbital-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+    .orbital-photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px #007b5e33, 0 0 0 8px #fff;
+      border: 6px solid #007b5e;
+      background: #fff;
+      display: block;
+      margin: 0 auto;
+      transition: box-shadow 0.2s;
+    }
+    .orbital-photo:hover {
+      box-shadow: 0 16px 48px #007b5e55, 0 0 0 12px #e6f2ed;
+    }
+    .orbital-bubbles {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .orbital-bubble {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 160px;
+      font-size: 1.08rem;
+      padding: 14px 16px;
+      background: #fff;
+      border-radius: 24px;
+      color: #007b5e;
+      font-weight: 600;
+      box-shadow: 0 2px 12px #007b5e22;
+      border: 2.5px solid #28a74533;
+      text-align: center;
+      pointer-events: auto;
+      transition: transform 0.18s, box-shadow 0.18s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.5px;
+      transform: translate(-50%, -50%);
+    }
+    /* Positionnement orbital harmonieux (cercle parfait, bulles à l'endroit) */
+    .orbital-bubble[style*="--i:0"] { transform: translate(-50%, -50%) rotate(0deg) translateY(-210px) rotate(0deg); }
+    .orbital-bubble[style*="--i:1"] { transform: translate(-50%, -50%) rotate(60deg) translateY(-210px) rotate(-60deg); }
+    .orbital-bubble[style*="--i:2"] { transform: translate(-50%, -50%) rotate(120deg) translateY(-210px) rotate(-120deg); }
+    .orbital-bubble[style*="--i:3"] { transform: translate(-50%, -50%) rotate(180deg) translateY(-210px) rotate(-180deg); }
+    .orbital-bubble[style*="--i:4"] { transform: translate(-50%, -50%) rotate(240deg) translateY(-210px) rotate(-240deg); }
+    .orbital-bubble[style*="--i:5"] { transform: translate(-50%, -50%) rotate(300deg) translateY(-210px) rotate(-300deg); }
+    @media (max-width: 700px) {
+      .orbital-section { max-width: 98vw; min-height: 220px; }
+      .orbital-photo { width: 90px; height: 90px; border-width: 2.5px; box-shadow: 0 2px 8px #007b5e33, 0 0 0 2px #fff; }
+      .orbital-bubble { width: 70px; font-size: 0.7rem; padding: 5px 5px; border-radius: 14px; }
+      .orbital-bubble[style*="--i:0"] { transform: translate(-50%, -50%) rotate(0deg) translateY(-90px) rotate(0deg); }
+      .orbital-bubble[style*="--i:1"] { transform: translate(-50%, -50%) rotate(60deg) translateY(-90px) rotate(-60deg); }
+      .orbital-bubble[style*="--i:2"] { transform: translate(-50%, -50%) rotate(120deg) translateY(-90px) rotate(-120deg); }
+      .orbital-bubble[style*="--i:3"] { transform: translate(-50%, -50%) rotate(180deg) translateY(-90px) rotate(-180deg); }
+      .orbital-bubble[style*="--i:4"] { transform: translate(-50%, -50%) rotate(240deg) translateY(-90px) rotate(-240deg); }
+      .orbital-bubble[style*="--i:5"] { transform: translate(-50%, -50%) rotate(300deg) translateY(-90px) rotate(-300deg); }
+    }
+    .orbital-desc { margin-top: 0; text-align: center; font-size: 1.13rem; }
+    .back { display: block; margin: 2.5rem auto 0 auto; text-align: center; color: #007b5e; font-weight: 600; text-decoration: none; font-size: 1.1rem; transition: color 0.15s; }
+    .back:hover { color: #28a745; text-decoration: underline; }
+    .skill-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #007b5e18;
+      padding: 1.7rem 1.5rem 1.2rem 1.5rem;
+      margin: 2.5rem auto 0 auto;
+      max-width: 480px;
+      color: #007b5e;
+      font-size: 1.08rem;
+      border: 2px solid #e6f2ed;
+      transition: box-shadow 0.18s;
+    }
+    .skill-card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #007b5e;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .skill-card ul {
+      margin: 0.5em 0 0.5em 1.2em;
+      padding: 0;
+    }
+    .skill-card li {
+      margin-bottom: 0.3em;
+      line-height: 1.5;
+    }
+    .skill-card a {
+      color: #28a745;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .skill-card a:hover {
+      color: #007b5e;
+      text-decoration: none;
+    }
+    .skill-exemples-imgs {
+      margin: 0.5em 0 0.5em 0;
+      padding: 0;
+      list-style: none;
+    }
+    .skill-exemples-imgs li {
+      margin-bottom: 0.7em;
+      display: flex;
+      align-items: center;
+      font-size: 1.04rem;
+      color: #007b5e;
+    }
+    .skill-exemples-imgs img {
+      margin-right: 10px;
+      background: #fff;
+      border: 1.5px solid #e6f2ed;
+      box-shadow: 0 2px 8px #007b5e18;
+      transition: box-shadow 0.15s;
+    }
+    .skill-exemples-imgs a {
+      color: #28a745;
+      text-decoration: underline;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s;
+    }
+    .skill-exemples-imgs a:hover {
+      color: #007b5e;
+      text-decoration: none;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.2rem 2.2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 900px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Compétences comportementales</h1>
+      <div class="orbital-section">
+        <div class="orbital-center">
+          <img src="img/hero/hero.png" alt="Photo de Simon Bonnier" class="orbital-photo">
+        </div>
+        <div class="orbital-bubbles">
+          <a href="#aisance-relationnelle" class="orbital-bubble" style="--i:0"><span>Aisance relationnelle</span></a>
+          <a href="#autonomie" class="orbital-bubble" style="--i:1"><span>Autonomie</span></a>
+          <a href="#gestion-posture" class="orbital-bubble" style="--i:2"><span>Gestion & posture professionnelle</span></a>
+          <a href="#esprit-equipe" class="orbital-bubble" style="--i:3"><span>Esprit d’équipe</span></a>
+          <a href="#perseverance" class="orbital-bubble" style="--i:4"><span>Persévérance</span></a>
+          <a href="#adaptabilite" class="orbital-bubble" style="--i:5"><span>Adaptabilité</span></a>
+        </div>
+      </div>
+      <div class="desc orbital-desc">
+        Au fil de mes expériences professionnelles, personnelles et de mes formations, j’ai développé des compétences comportementales essentielles qui structurent ma façon de travailler.<br><br>
+        <span style="color:#007b5e;font-weight:600;">Ces qualités humaines sont au cœur de mon engagement professionnel.</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card" id="aisance-relationnelle">
+          <h3>💬 Aisance relationnelle</h3>
+          <ul>
+            <li>Aucune difficulté à aller vers les autres</li>
+            <li>Nature extravertie, communication fluide et spontanée</li>
+            <li>À l’aise avec les clients, collègues ou inconnus</li>
+          </ul>
+          <p><strong>Exemples :</strong></p>
+          <ul class="skill-exemples-imgs">
+            <li>
+              <a href="img/ptut23_questionnaire_cinemafamily.pdf" target="_blank">
+                + de 300 questionnaires administrés (voir le questionnaire PTUD)
+              </a>
+            </li>
+            <li>
+              <a href="experience5.html">
+                <img src="img/logo_celio .png" alt="Logo Celio" style="height:38px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Accueil et conseil client en magasin
+              </a>
+            </li>
+            <li>
+              <a href="experience2.html">
+                <img src="img/ca.png" alt="Logo Crédit Agricole" style="height:38px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Accueil et conseil client au Crédit Agricole (physique & téléphone)
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="skill-card" id="esprit-equipe">
+          <h3>🤝 Esprit d’équipe</h3>
+          <p>Savoir coopérer efficacement dans un objectif commun.</p>
+          <p><strong>Exemples :</strong></p>
+          <ul class="skill-exemples-imgs">
+            <li>
+              <a href="parcours.html">
+                Répartition du travail dans les projets de groupe à l’IUT
+              </a>
+            </li>
+            <li>
+              <a href="experience5.html">
+                <img src="img/logo_celio .png" alt="Logo Celio" style="height:32px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Collaboration sur le terrain pendant les stages (celio)
+              </a>
+            </li>
+            <li>
+              <a href="experience2.html">
+                <img src="img/ca.png" alt="Logo Crédit Agricole" style="height:32px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Coordination avec l’équipe (Crédit Agricole : accueil, Teams)
+              </a>
+            </li>
+            <li>
+              <a href="experience1.html">
+                <img src="img/logomcdonalds.png" alt="Logo McDonald's" style="height:32px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Travail en synergie chez McDonald’s (passage de consignes, relais équipe, gestion des rushs)
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="skill-card" id="autonomie">
+          <h3>🧭 Autonomie</h3>
+          <p>Travailler efficacement sans supervision constante.</p>
+          <p><strong>Exemples :</strong></p>
+          <ul class="skill-exemples-imgs">
+            <li>
+              <a href="experience5.html">
+                <img src="img/logo_celio .png" alt="Logo Celio" style="height:32px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Conseil client seul en magasin (celio)
+              </a>
+            </li>
+            <li>
+              <a href="experience2.html">
+                <img src="img/ca.png" alt="Logo Crédit Agricole" style="height:32px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Accueil client et autres activités de proactivité (Crédit Agricole, après-midi)
+              </a>
+            </li>
+            <li>
+              <a href="experience1.html">
+                <img src="img/logomcdonalds.png" alt="Logo McDonald's" style="height:32px;width:auto;border-radius:8px;vertical-align:middle;margin-right:8px;box-shadow:0 2px 8px #007b5e22;"> Gestion de poste complet chez McDonald’s sans encadrement (close, sécurité, organisation)
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="skill-card" id="gestion-posture">
+          <h3>🧑‍💼 Gestion &amp; posture professionnelle</h3>
+          <ul>
+            <li>Respect du code vestimentaire strict propre au secteur bancaire</li>
+            <li>Intégration rapide aux exigences de rigueur du métier : discrétion, sérieux</li>
+            <li>Capacité à adopter une attitude professionnelle en toutes circonstances au <a href="experience2.html">Crédit Agricole</a></li>
+          </ul>
+        </div>
+        <div class="skill-card" id="perseverance">
+          <h3>🎯 Persévérance</h3>
+          <p>Capacité à maintenir l’effort et la motivation dans la durée, malgré la difficulté.</p>
+          <p><strong>Exemples :</strong></p>
+          <ul class="skill-exemples-imgs">
+            <li>Pratique régulière du sport : athlétisme et musculation</li>
+            <li>
+              <a href="img/PHOTO-2024-11-19-14-46-46.jpg" target="_blank">
+                Participation à un semi-marathon
+              </a>
+            </li>
+            <li>Préparation en cours pour un marathon, nécessitant discipline et constance</li>
+          </ul>
+        </div>
+        <div class="skill-card" id="adaptabilite">
+          <h3>🔄 Adaptabilité</h3>
+          <p>Capacité à s’ajuster rapidement à des situations variées et à de nouveaux environnements.</p>
+          <p><strong>Exemples :</strong></p>
+          <ul class="skill-exemples-imgs">
+            <li>
+              <a href="experience1.html">
+                Expérience chez McDonald’s : adaptation rapide à un environnement exigeant et rythmé
+              </a>
+            </li>
+            <li>Polyvalence entre plusieurs postes : cuisine, caisse, drive, entretien, sécurité</li>
+            <li>Capacité à changer de rôle en fonction des besoins opérationnels, souvent en temps réel</li>
+          </ul>
+        </div>
+      </div>
+      <a href="index.html#competences" class="back">&#8592; Retour au portfolio</a>
+    </div>
+  </body>
+</html>

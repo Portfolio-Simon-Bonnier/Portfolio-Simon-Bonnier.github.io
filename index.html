@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Bonnier</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="css/qr.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header id="header" class="header">
+      <div class="container container-lg">
+        <div class="header-nav">
+          <a
+            href="#home"
+            class="logo"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+            >S.Bonnier</a
+          >
+          <nav id="nav" class="nav">
+            <ul class="nav-list" data-aos="fade-down" data-aos-duration="1000">
+              <li class="nav-item">
+                <a href="#home" class="nav-link active">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">À propos</a>
+              </li>
+              <li class="nav-item">
+                <a href="#projet-pro" class="nav-link">Mon projet professionnel</a>
+              </li>
+              <li class="nav-item">
+                <a href="#formation" class="nav-link">Formation</a>
+              </li>
+              <li class="nav-item">
+                <a href="#experience" class="nav-link">Expériences</a>
+              </li>
+              <li class="nav-item">
+                <a href="#competences" class="nav-link">Compétences</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+            <button id="nav-btn" class="nav-btn">
+              <img
+                id="nav-btn-img"
+                src="img/icons/open.svg"
+                alt="Navigation button"
+              />
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="container container-lg">
+        <div
+          class="hero-row"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-out"
+          data-aos-delay="500"
+          data-aos-duration="1000"
+        >
+          <div class="hero-content">
+            <!-- QR code visible uniquement sur ordinateur -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://portfolio-simon-bonnier.github.io/" alt="QR Code Portfolio Simon Bonnier" class="qr-desktop qr-desktop-large" />
+            <span class="hero-greeting">Bonjour, je suis</span>
+            <h1 class="hero-heading">Simon Bonnier</h1>
+            <span class="hero-heading-subtitle"
+              >Étudiant en BUT Techniques de Commercialisation</span
+            >
+            <div class="about-social-list">
+              <div class="social-links-row">
+                <a href="mailto:simon.bonnier5@gmail.com" class="contact-icon" title="Email">
+                  <img src="img/social_icons/mail.svg" alt="Email" />
+                </a>
+                <a href="https://www.linkedin.com/in/simon-bonnier" class="contact-icon" title="LinkedIn" target="_blank">
+                  <img src="img/social_icons/linkedin.svg" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+            <div>
+              <a href="#about" class="btn">À propos</a>
+              <a href="#contact" class="btn btn-white">Contact</a>
+            </div>
+          </div>
+          <div class="hero-img">
+            <img
+              src="img/hero/hero.png"
+              alt="Photo de Simon Bonnier"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container" id="about">
+        <div class="about-title">
+          <h2 class="title">À propos de moi</h2>
+        </div>
+        <div class="about-row">
+          <div
+            class="about-content"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <p class="about-descr about-centered">
+              Je m’appelle Simon Bonnier, 19 ans, étudiant en 2ᵉ année de BUT Techniques de Commercialisation à l’IUT de Saint-Étienne.<br><br>
+              Calme et réfléchi, je me destine aux métiers de la relation client, un domaine central et porteur. Ma formation m’apporte des bases solides en marketing, négociation, communication et gestion de projet, renforcées par des expériences concrètes sur le terrain.<br><br>
+              Passionné de sport, j’en retire rigueur et motivation, des qualités que j’applique au quotidien.<br><br>
+              Ce portfolio reflète mon parcours, mes compétences, et ma volonté d’évoluer dans un environnement structuré, exigeant et tourné vers le client
+            </p>
+            <ul class="about-coordonnees about-centered about-contact-list">
+              <li>
+                <a href="tel:0769483698" class="contact-icon" title="Téléphone">
+                  <img src="img/social_icons/phone.svg" alt="Téléphone" style="vertical-align:middle;width:20px;margin-right:8px;" />
+                  07 69 48 36 98
+                </a>
+              </li>
+              <li>
+                <a href="mailto:simon.bonnier5@gmail.com" class="contact-icon" title="Email">
+                  <img src="img/social_icons/mail.svg" alt="Email" style="vertical-align:middle;width:20px;margin-right:8px;" />
+                  simon.bonnier5@gmail.com
+                </a>
+              </li>
+            </ul>
+            <!-- Adresse supprimée -->
+            <div class="about-download-btn">
+              <a href="img/CV Bonnier_Simon.pdf" class="btn btn-white" download>Télécharger le CV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nouvelle section : Mon projet professionnel déplacée ici -->
+    <section id="projet-pro" class="projet-pro">
+      <div class="container" style="max-width:900px;margin:0 auto;">
+        <div class="about-title">
+          <h2 class="title">Mon projet professionnel</h2>
+        </div>
+        <div class="projet-pro-slider" style="display:flex;align-items:stretch;position:relative;overflow:hidden;background:#e6f2ed;border-radius:18px;box-shadow:0 2px 12px #007b5e11;min-height:340px;">
+          <button class="slider-arrow left" aria-label="Voir projet professionnel" style="position:absolute;left:0;top:50%;transform:translateY(-50%);background:none;border:none;font-size:2.2rem;color:#185c47;z-index:2;cursor:pointer;padding:0 18px;transition:color 0.18s;display:none;">&#8592;</button>
+          <div class="slider-content" style="width:100%;display:block;transition:transform 0.5s cubic-bezier(.77,0,.18,1);will-change:transform;">
+            <div class="slider-panel" id="panel-projet" style="width:100%;padding:2.2rem 1.5rem;">
+              <h3 style="font-size:1.35rem;color:#003366;margin-bottom:1rem;">Projet professionnel</h3>
+              <p><strong>Stage actuel au Crédit Agricole</strong></p>
+              <ul style="margin-bottom:1.2em;">
+                <li>→ <strong>Missions centrées sur la relation client</strong>, à la fois physique et téléphonique</li>
+              </ul>
+              <p><strong>Expérience enrichissante</strong> qui confirme mon attrait pour un métier à dimension humaine, varié et concret</p>
+              <ul style="margin-bottom:1.2em;">
+                <li>→ <strong>Développement de compétences</strong> en accueil, écoute active, gestion des demandes et transmission efficace</li>
+              </ul>
+              <p><strong>Poursuite d'études à la rentrée</strong></p>
+              <ul style="margin-bottom:1.2em;">
+                <li>→ BUT 3 Techniques de Commercialisation ou Licence Pro Banque, selon les opportunités et résultats d’entretien (dont un prévu le 18 juin)</li>
+                <li>→ <strong>Objectif :</strong> intégrer une alternance solide qui me permettra de renforcer mes compétences commerciales et d’avoir une vision terrain du métier</li>
+              </ul>
+              <p><strong>Objectif à moyen terme</strong></p>
+              <ul style="margin-bottom:1.2em;">
+                <li>→ Rejoindre un Master en école de commerce (<strong>EM Lyon, INSEEC, IDRAC...</strong>)</li>
+                <li>→ Me spécialiser dans la relation client et le développement commercial stratégique</li>
+                <li>→ Viser des postes à responsabilité en alliant opérationnel et réflexion stratégique</li>
+              </ul>
+              <p><strong>Vision long terme</strong></p>
+              <ul style="margin-bottom:1.2em;">
+                <li>→ Je reste ouvert à d’autres secteurs que la banque, selon les expériences et les rencontres</li>
+                <li>→ Revenir dans le domaine bancaire n’est pas exclu à l’avenir</li>
+                <li>→ <strong>Ma priorité :</strong> évoluer, apprendre en continu et construire une carrière solide en lien avec mes valeurs et ambitions</li>
+              </ul>
+            </div>
+            <div class="slider-panel" id="panel-competences" style="width:100%;padding:2.2rem 1.5rem;display:none;">
+              <h3 style="font-size:1.35rem;color:#003366;margin-bottom:1rem;">Axes d’amélioration à court terme</h3>
+              <p><strong>Renforcer ma capacité d’organisation</strong></p>
+              <p>Dans les mois à venir, je souhaite structurer mes tâches de manière plus claire, mieux les planifier dans le temps et apprendre à hiérarchiser les priorités sans me disperser. Cela me permettra d’être plus efficace dans la gestion de mes projets et de mieux répondre aux échéances.</p>
+              <p><strong>Développer mon aisance à l’oral</strong></p>
+              <p>Je veux également travailler sur mon éloquence et ma fluidité lors de prises de parole. Mon objectif est de gagner en impact et en confiance, que ce soit en entretien, en réunion d’équipe, ou lors de présentations devant un public.</p>
+            </div>
+          </div>
+          <button class="slider-arrow right" aria-label="Voir compétences à développer" style="position:absolute;right:0;top:50%;transform:translateY(-50%);background:none;border:none;font-size:2.2rem;color:#185c47;z-index:2;cursor:pointer;padding:0 18px;transition:color 0.18s;">&#8594;</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Slider projet pro (corrigé pour n'afficher qu'un panneau à la fois)
+      const panelProjet = document.getElementById('panel-projet');
+      const panelCompetences = document.getElementById('panel-competences');
+      const leftBtn = document.querySelector('.slider-arrow.left');
+      const rightBtn = document.querySelector('.slider-arrow.right');
+      let sliderIndex = 0;
+      function updateSlider() {
+        if(sliderIndex === 0) {
+          panelProjet.style.display = '';
+          panelCompetences.style.display = 'none';
+          leftBtn.style.display = 'none';
+          rightBtn.style.display = '';
+        } else {
+          panelProjet.style.display = 'none';
+          panelCompetences.style.display = '';
+          leftBtn.style.display = '';
+          rightBtn.style.display = 'none';
+        }
+      }
+      updateSlider();
+      leftBtn.addEventListener('click', () => {
+        sliderIndex = 0;
+        updateSlider();
+      });
+      rightBtn.addEventListener('click', () => {
+        sliderIndex = 1;
+        updateSlider();
+      });
+      // Accessibilité clavier
+      leftBtn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){sliderIndex=0;updateSlider();} });
+      rightBtn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){sliderIndex=1;updateSlider();} });
+    </script>
+    <style>
+      .slider-arrow:focus { outline:2px solid #007b5e; }
+      .slider-arrow:hover { color:#28a745; }
+      .slider-panel { min-height: 320px; }
+      .slider-content { width:200%; }
+      @media (max-width: 900px) {
+        .projet-pro-slider { flex-direction:column; }
+        .slider-panel { min-width:100vw;width:100vw; }
+        .slider-content { width:200vw; }
+      }
+    </style>
+
+    <section id="formation" class="formation timeline-section">
+      <div class="container container-lg">
+        <div class="projects-title">
+          <h2 class="title">Formation</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item formation-interactive">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 – en cours</div>
+            <div class="timeline-content">
+              BUT Techniques de Commercialisation<br>
+              Spécialité : Business Développement et Management de la Relation Client (BDMRC)
+              <div class="but-tc-competences" style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                <a href="marketing.html" class="btn btn-tc btn-tc-marketing" style="text-align: center; display: flex; align-items: center; justify-content: center;">Marketing</a>
+                <a href="vente.html" class="btn btn-tc btn-tc-vente" style="text-align: center; display: flex; align-items: center; justify-content: center;">Vente</a>
+                <a href="communication.html" class="btn btn-tc btn-tc-comm" style="text-align: center; display: flex; align-items: center; justify-content: center;">Communication commerciale</a>
+                <a href="parcours.html" class="btn btn-tc btn-tc-parcours" style="text-align: center; display: flex; align-items: center; justify-content: center;">Parcours BDMRC</a>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2020 – 2023</div>
+            <div class="timeline-content">
+              <h5>Baccalauréat général (mention assez bien)</h5>
+              <p>Lycée Renée Descartes, Saint-Genis-Laval<br>
+              Spécialités : Sciences économiques et sociales / Histoire-Géographie, sciences politiques<br>
+              Option : Mathématiques complémentaires</p>
+              <a href="img/Baccalauréat%20général%20(1).pdf" target="_blank" class="btn btn-tc" style="margin-top:10px;">Voir le diplôme</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2016 – 2020</div>
+            <div class="timeline-content">
+              <h5>Brevet des collèges (mention très bien)</h5>
+              <p>Collège Daisy Georges Martin, Irigny</p>
+              <a href="img/DIPLÔME%20NATIONAL%20DU%20BREVET.pdf" target="_blank" class="btn btn-tc" style="margin-top:10px;">Voir le diplôme</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience timeline-section">
+      <div class="container container-lg">
+        <div class="projects-title">
+          <h2 class="title">Expériences</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item" onclick="window.open('experience1.html', '_blank')">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Depuis fév. 2024</div>
+            <div class="timeline-content">
+              <h5>Équipier Polyvalent – McDonald’s, Pierre-Bénite</h5>
+              <ul>
+                <li>Préparation des commandes en respectant les normes d’hygiène et de rapidité</li>
+                <li>Travail en équipe</li>
+                <li>Participation au nettoyage des espaces</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item" onclick="window.open('experience2.html', '_blank')">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Mai – Juin 2025</div>
+            <div class="timeline-content">
+              <h5>Attaché clientèle – Crédit Agricole, Saint-Laurent-de-Chamousset</h5>
+              <ul>
+                <li>Accueil des clients en agence</li>
+                <li>Assistance téléphonique et mise à jour des données clients</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item" onclick="window.open('experience5.html', '_blank')">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Juin 2024</div>
+            <div class="timeline-content">
+              <h5>Vendeur stagiaire – Celio, Lyon</h5>
+              <ul>
+                <li>Conseil et accompagnement des clients en boutique</li>
+                <li>Mise en rayon et gestion du stock</li>
+                <li>Encaissement et fidélisation de la clientèle</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences" class="competences">
+      <div class="container">
+        <div class="about-title">
+          <h2 class="title">Mes compétences</h2>
+        </div>
+        <div class="competence-btns" style="display:flex;gap:32px;justify-content:center;margin:48px 0 0 0;flex-wrap:wrap;">
+          <a href="competences-comportementales.html" class="btn btn-tc" style="font-size:2.1rem;padding:1.3em 3em;border-radius:2.5em;background:linear-gradient(90deg,#007b5e 0%,#28a745 100%);color:#fff;font-weight:900;box-shadow:0 4px 24px #007b5e22;letter-spacing:1px;transition:transform 0.18s,box-shadow 0.18s,background 0.18s;display:flex;align-items:center;justify-content:center;text-align:center;outline:none;border:none;">
+            <span style="width:100%;">Compétences comportementales</span>
+          </a>
+          <a href="competences-techniques.html" class="btn btn-tc" style="font-size:2.1rem;padding:1.3em 3em;border-radius:2.5em;background:linear-gradient(90deg,#28a745 0%,#007b5e 100%);color:#fff;font-weight:900;box-shadow:0 4px 24px #007b5e22;letter-spacing:1px;transition:transform 0.18s,box-shadow 0.18s,background 0.18s;display:flex;align-items:center;justify-content:center;text-align:center;outline:none;border:none;">
+            <span style="width:100%;">Compétences techniques</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-title">
+          <h2 class="title">Contact</h2>
+        </div>
+        <div class="contact-content">
+          <p>
+            Si vous êtes intéressé par mon profil, contactez-moi !
+          </p>
+        </div>
+
+        <form class="contactForm" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="input-box">
+            <input type="text" name="name" placeholder="Nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Adresse Email"
+              required
+            />
+          </div>
+
+          <textarea
+            name="message"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Votre Message"
+            required
+          ></textarea>
+          <div
+            class="contact-button"
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-out"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <button href="#!" class="btn btn-red" name="submit" type="submit">
+              Envoyer le message
+            </button>
+          </div>
+        </form>
+        <div class="response"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-row">
+          <div class="social-links-row footer-social">
+            <a href="https://www.linkedin.com/in/simon-bonnier/" target="_blank">
+              <img src="img/social_icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+          </div>
+          <div class="footer-copyright">
+            <p>&copy; Copyright Simon Bonnier 2025</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="goToTop" class="goToTop">
+      <a href="#home">
+        <img src="img/icons/arrow_up.svg" alt="Back to top"
+      /></a>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

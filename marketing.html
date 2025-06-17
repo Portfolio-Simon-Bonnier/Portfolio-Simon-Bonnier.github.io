@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketing – Carte mentale</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 36px 18px 48px 18px; }
+    .vente-wrapper {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 36px 18px 48px 18px;
+      background: linear-gradient(120deg, #f7fafc 60%, #e3f0ff 100%);
+      border-radius: 24px;
+      box-shadow: 0 4px 32px #1976d218;
+    }
+    .vente-title {
+      text-align: center;
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: #1976d2;
+      margin-bottom: 2.2rem;
+      letter-spacing: 1px;
+    }
+    .vente-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .vente-step {
+      background: #fffccf80;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #1976d211;
+      padding: 2.2rem 2rem 1.5rem 2rem;
+      transition: box-shadow 0.18s;
+      position: relative;
+      overflow: hidden;
+      border-left: 7px solid #1976d2;
+    }
+    .vente-step:hover {
+      box-shadow: 0 8px 32px #1976d222;
+      border-left: 7px solid #0d47a1;
+    }
+    .vente-step h2 {
+      font-size: 1.45rem;
+      color: #1976d2;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+    .vente-step-content {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .vente-step-content-full {
+      display: block;
+    }
+    .vente-step-col {
+      flex: 1 1 260px;
+      min-width: 220px;
+    }
+    .vente-step-col h3 {
+      font-size: 1.08rem;
+      color: #0d47a1;
+      font-weight: 700;
+      margin-bottom: 0.7em;
+    }
+    .vente-list {
+      margin: 0;
+      padding-left: 1.1em;
+      font-size: 1.07em;
+    }
+    .vente-list li {
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+    }
+    .vente-label {
+      background: #e3f0ff80;
+      color: #1976d2;
+      border-radius: 8px;
+      padding: 2px 10px;
+      font-size: 0.98em;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    .vente-list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7em 2.2em;
+      padding-left: 0;
+      list-style: disc inside;
+    }
+    @media (max-width: 900px) {
+      .vente-step-content { flex-direction: column; gap: 1.2rem; }
+      .vente-list-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .vente-wrapper { padding: 12px 2vw 24px 2vw; }
+      .vente-step { padding: 1.1rem 0.7rem 1rem 0.7rem; }
+      .vente-title { font-size: 2rem; }
+    }
+    .bg-logo-ujm {
+      position: fixed;
+      top: 50%;
+      width: 38vw;
+      max-width: 700px;
+      min-width: 260px;
+      opacity: 0.13;
+      z-index: 0;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+    .bg-logo-ujm-left {
+      left: 0;
+      margin-left: -5vw;
+    }
+    .bg-logo-ujm-right {
+      right: 0;
+      margin-right: -5vw;
+      transform: translateY(-50%) scaleX(-1);
+    }
+    .vente-wrapper, .vente-title, .vente-steps, .vente-step, .vente-step-col, .vente-list, .vente-label {
+      position: relative;
+      z-index: 1;
+    }
+    .marketing-highlight {
+      border: 2px solid #1976d2;
+      border-radius: 12px;
+      background: #e3f0ff33;
+      padding: 0.7em 1.2em 0.7em 1.2em;
+      margin: 0.7em 0 0.7em 0;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body style="background: linear-gradient(120deg, #f0f2f5 60%, #e3f0ff 100%); position: relative;">
+  <img src="img/logoujm.png" alt="Logo UJM" class="bg-logo-ujm bg-logo-ujm-left">
+  <img src="img/logoujm.png" alt="Logo UJM" class="bg-logo-ujm bg-logo-ujm-right">
+  <div class="container">
+    <div class="vente-wrapper">
+      <h1 class="vente-title">Marketing</h1>
+      <div class="vente-steps">
+        <div class="vente-step">
+          <h2>1. Réaliser une étude de marché ou une enquête terrain</h2>
+          <div class="vente-step-content">
+            <div class="vente-step-col">
+              <h3>Objectif</h3>
+              <p>Définir les objectifs, élaborer un questionnaire, choisir un échantillon, organiser et conduire l’enquête, utiliser des outils de collecte et synthétiser les résultats.</p>
+            </div>
+            <div class="vente-step-col">
+              <h3>Compétences & preuves</h3>
+              <ul class="vente-list">
+                <li><span class="marketing-reunion-link" style="color:#1976d2;cursor:pointer;text-decoration:underline;">Définir les objectifs de l’étude (quantitatif / qualitatif)</span></li>
+                <li><span class="marketing-questionnaire-link" style="color:#1976d2;cursor:pointer;text-decoration:underline;">Élaborer un questionnaire pertinent, structuré et compréhensible</span></li>
+                <div class="marketing-highlight">
+                  <li>Choisir un échantillon représentatif de la cible visée</li>
+                  <li>Organiser et conduire l’enquête sur le terrain ou en ligne</li>
+                  <li>Utiliser des outils de collecte et de traitement des données (SphynxIQ2)</li>
+                  <li>Synthétiser les résultats sous forme de rapports clairs et graphiques exploitables <span class="marketing-v1ptud-link" style="color:#1976d2;cursor:pointer;text-decoration:underline;">(voir v1 PTUT)</span></li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="vente-step">
+          <h2>2. Analyser le comportement du consommateur</h2>
+          <div class="vente-step-content">
+            <div class="vente-step-col">
+              <h3>Objectif</h3>
+              <p>Étudier les motivations, freins, habitudes d’achat, segments, attentes et facteurs d’influence du consommateur, à travers les différents outils.</p>
+            </div>
+            <div class="vente-step-col">
+              <div class="marketing-highlight">
+                <h3>Compétences & preuves</h3>
+                <ul class="vente-list">
+                  <li>Étudier les motivations, freins et habitudes d’achat</li>
+                  <li>Identifier les segments de consommateurs et leurs attentes</li>
+                  <li>Interpréter les résultats d’enquêtes (statistiques, tendances, signaux faibles)</li>
+                  <li>Appliquer des notions comme le parcours client, le processus d’achat ou la typologie de consommateurs</li>
+                  <li>Comprendre les facteurs d’influence : prix, image, digital, environnement, bouche-à-oreille... <span class="marketing-brsa-link" style="color:#1976d2;cursor:pointer;text-decoration:underline;">(BRSA macro-environnement)</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vente-step">
+          <h2>3. Participer à la définition d’une offre commerciale</h2>
+          <div class="vente-step-content">
+            <div class="vente-step-col">
+              <h3>Objectif</h3>
+              <p>Identifier les besoins du marché, proposer une offre adaptée, déterminer le positionnement et la valeur ajoutée.</p>
+            </div>
+            <div class="vente-step-col">
+              <div class="marketing-highlight">
+                <h3>Compétences & preuves</h3>
+                <ul class="vente-list">
+                  <li>Identifier les besoins du marché à partir des données collectées</li>
+                  <li>Proposer un produit ou service en adéquation avec les attentes de la cible</li>
+                  <li>Déterminer le positionnement de l’offre (image, gamme, qualité, prix…)</li>
+                  <li>Réfléchir à la valeur ajoutée et à la proposition de valeur <span class="marketing-partie3sae-link" style="color:#1976d2;cursor:pointer;text-decoration:underline;">(Partie 3 SAE)</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var reunion = document.querySelector('.marketing-reunion-link');
+  if(reunion) {
+    reunion.addEventListener('click', function() {
+      window.open('img/Réunion%20exploratoire.pdf', '_blank');
+    });
+  }
+  var questionnaire = document.querySelector('.marketing-questionnaire-link');
+  if(questionnaire) {
+    questionnaire.addEventListener('click', function() {
+      window.open('img/ptut23_questionnaire_cinemafamily.pdf', '_blank');
+    });
+  }
+  var v1ptud = document.querySelector('.marketing-v1ptud-link');
+  if(v1ptud) {
+    v1ptud.addEventListener('click', function() {
+      window.open('v1 PTUT (7).pdf', '_blank');
+    });
+  }
+  var brsa = document.querySelector('.marketing-brsa-link');
+  if(brsa) {
+    brsa.addEventListener('click', function() {
+      window.open('BRSA Macro-environnement.pdf', '_blank');
+    });
+  }
+  var partie3sae = document.querySelector('.marketing-partie3sae-link');
+  if(partie3sae) {
+    partie3sae.addEventListener('click', function() {
+      window.open('Partie 3 sae (2).pdf', '_blank');
+    });
+  }
+});
+  </script>
+</body>
+</html>

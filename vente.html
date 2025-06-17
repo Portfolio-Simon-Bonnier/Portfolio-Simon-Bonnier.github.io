@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Carte mentale – Vendre une offre commerciale</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body style="background: linear-gradient(120deg, #f7fafc 60%, #e3f0ff 100%); position: relative;">
+  <img src="img/logoujm.png" alt="Logo UJM" class="bg-logo-ujm bg-logo-ujm-left">
+  <img src="img/logoujm.png" alt="Logo UJM" class="bg-logo-ujm bg-logo-ujm-right">
+    <div class="container">
+      <div class="vente-wrapper">
+        <h1 class="vente-title">Vente</h1>
+        <div class="vente-steps">
+          <div class="vente-step">
+            <h2>1. Prospecter et acquérir des clients</h2>
+            <div class="vente-step-content">
+              <div class="vente-step-col">
+                <h3>Objectif</h3>
+                <p>Identifier et contacter de nouveaux clients en utilisant des méthodes variées (physique, téléphonique, digitale).</p>
+              </div>
+              <div class="vente-step-col">
+                <h3>Preuves</h3>
+                <ul>
+                  <li><strong>Réalisation de prospection :</strong>
+                    <ul class="vente-list">
+                      <li><span class="vente-label">Téléphonique</span> : recherche de stage de première année</li>
+                      <li><span class="vente-label vente-link" data-img="physique">Physique</span> : recherche d’un commanditaire pour l’étude commerciale de deuxième année</li>
+                      <li><span class="vente-label vente-link" data-img="digitale">Digitale</span> : contact d’entreprises pour stage/alternance</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="vente-step">
+            <h2>2. Mener des entretiens de vente</h2>
+            <div class="vente-step-content">
+              <div class="vente-step-col">
+                <h3>Objectif</h3>
+                <p>Conduire un entretien de vente structuré et personnalisé pour présenter efficacement une offre, répondre aux objections et conclure dans une logique de valeur.</p>
+              </div>
+              <div class="vente-step-col">
+                <h3>Mise en œuvre & preuves</h3>
+                <ul class="vente-list">
+                  <li><span class="vente-support-link" style="color:#007b5e;cursor:pointer;text-decoration:underline;">Création de supports d’aide à la vente (fiches produits, présentations visuelles, argumentaires)</span></li>
+                  <li><span class="vente-argumentaire-link" style="color:#007b5e;cursor:pointer;text-decoration:underline;">Préparation d’argumentaires solides et adaptés (méthode SONCAS, AIR...)</span></li>
+                  <li><span class="vente-decouverte-link" style="color:#007b5e;cursor:pointer;text-decoration:underline;">Poser des questions ouvertes et pertinentes pour bien cerner le besoin</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="vente-step vente-step-link" style="cursor:pointer;">
+            <h2>3. Gérer la relation client sur l’ensemble du cycle de vente</h2>
+            <div class="vente-step-content vente-step-content-full">
+              <ul class="vente-list vente-list-grid">
+                <li>Prospecter de nouveaux clients (terrain, téléphone, email, réseaux)</li>
+                <li>Qualifier les leads : identifier les besoins, prioriser les contacts</li>
+                <li>Concrétiser la vente : suivi rigoureux et professionnel</li>
+                <li>Gérer les réclamations ou objections avec empathie et efficacité</li>
+                <li>Fidéliser en assurant un service après-vente de qualité</li>
+                <li>Mettre à jour le CRM et maintenir une base client claire et actualisée</li>
+                <li>Relancer ou proposer des offres complémentaires</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .vente-wrapper {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 36px 18px 48px 18px;
+        background: linear-gradient(120deg, #f7fafc 60%, #e3f0ff 100%);
+        border-radius: 24px;
+        box-shadow: 0 4px 32px #007b5e18;
+      }
+      .vente-title {
+        text-align: center;
+        font-size: 2.7rem;
+        font-weight: 800;
+        color: #007b5e;
+        margin-bottom: 2.2rem;
+        letter-spacing: 1px;
+      }
+      .vente-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+      .vente-step {
+        background: #fffccf80;
+        /* Opacité 50% pour voir le logo derrière */
+        border-radius: 18px;
+        box-shadow: 0 2px 16px #007b5e11;
+        padding: 2.2rem 2rem 1.5rem 2rem;
+        transition: box-shadow 0.18s;
+        position: relative;
+        overflow: hidden;
+        border-left: 7px solid #007b5e;
+      }
+      .vente-step:hover {
+        box-shadow: 0 8px 32px #007b5e22;
+        border-left: 7px solid #28a745;
+      }
+      .vente-step h2 {
+        font-size: 1.45rem;
+        color: #007b5e;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.5px;
+      }
+      .vente-step-content {
+        display: flex;
+        gap: 2.5rem;
+        flex-wrap: wrap;
+      }
+      .vente-step-content-full {
+        display: block;
+      }
+      .vente-step-col {
+        flex: 1 1 260px;
+        min-width: 220px;
+      }
+      .vente-step-col h3 {
+        font-size: 1.08rem;
+        color: #28a745;
+        font-weight: 700;
+        margin-bottom: 0.7em;
+      }
+      .vente-list {
+        margin: 0;
+        padding-left: 1.1em;
+        font-size: 1.07em;
+      }
+      .vente-list li {
+        margin-bottom: 0.5em;
+        line-height: 1.5;
+      }
+      .vente-label {
+        background: #e3f0ff80;
+        /* Opacité 50% pour voir le logo derrière */
+        color: #007b5e;
+        border-radius: 8px;
+        padding: 2px 10px;
+        font-size: 0.98em;
+        font-weight: 600;
+        margin-right: 6px;
+      }
+      .vente-list-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7em 2.2em;
+        padding-left: 0;
+        list-style: disc inside;
+      }
+      .bg-logo-ujm {
+        position: fixed;
+        top: 50%;
+        width: 38vw;
+        max-width: 700px;
+        min-width: 260px;
+        opacity: 0.13;
+        z-index: 0;
+        pointer-events: none;
+        transform: translateY(-50%);
+      }
+      .bg-logo-ujm-left {
+        left: 0;
+        margin-left: -5vw;
+      }
+      .bg-logo-ujm-right {
+        right: 0;
+        margin-right: -5vw;
+        transform: translateY(-50%) scaleX(-1);
+      }
+      .vente-wrapper, .vente-title, .vente-steps, .vente-step, .vente-step-col, .vente-list, .vente-label {
+        position: relative;
+        z-index: 1;
+      }
+      .vente-highlight {
+        /* Suppression de l'encadré, retour à l'état précédent */
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        display: initial;
+      }
+      @media (max-width: 900px) {
+        .vente-step-content { flex-direction: column; gap: 1.2rem; }
+        .vente-list-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 600px) {
+        .vente-wrapper { padding: 12px 2vw 24px 2vw; }
+        .vente-step { padding: 1.1rem 0.7rem 1rem 0.7rem; }
+        .vente-title { font-size: 2rem; }
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.vente-link').forEach(function(el) {
+          el.style.cursor = 'pointer';
+          el.addEventListener('click', function() {
+            let file = '';
+            if (el.dataset.img === 'physique') file = 'img/Compte%20rendu%20des%20inteviews%20(1).docx';
+            if (el.dataset.img === 'digitale') file = 'img/screenindeed.png';
+            if (file) {
+              window.open(file, '_blank');
+            }
+          });
+        });
+        // Ajout du lien interactif pour le support d'aide à la vente
+        var support = document.querySelector('.vente-support-link');
+        if(support) {
+          support.addEventListener('click', function() {
+            window.open('img/Blue%20&%20White%20Minimalist%20Magazine%20Page.pdf', '_blank');
+          });
+        }
+        // Ajout du lien interactif pour l'argumentaire
+        var argumentaire = document.querySelector('.vente-argumentaire-link');
+        if(argumentaire) {
+          argumentaire.addEventListener('click', function() {
+            window.open('argumentaire.pdf', '_blank');
+          });
+        }
+        // Ajout du lien interactif pour le plan de découverte
+        var decouverte = document.querySelector('.vente-decouverte-link');
+        if(decouverte) {
+          decouverte.addEventListener('click', function() {
+            window.open('img/Plan%20de%20découverte.pdf', '_blank');
+          });
+        }
+        // Rendre le bloc 3 cliquable pour aller vers experience2.html
+        var step3 = document.querySelector('.vente-step-link');
+        if(step3) {
+          step3.addEventListener('click', function() {
+            window.location.href = 'experience2.html';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Stage chez Celio – Missions & Compétences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary-color: #222;
+      --secondary-color: #f7f7f7;
+      --accent-color: #e30613;
+      --accent-dark: #b0000a;
+      --bubble-bg: #fff;
+      --bubble-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
+      --btn-bg: #e30613;
+      --btn-hover: #b0000a;
+      --btn-text: #fff;
+    }
+    body {
+      font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+      background: url('img/celiomagasin.png') center center/cover no-repeat fixed;
+      color: #111;
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+    .overlay-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255,255,255,0.82);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .main-content-celio {
+      position: relative;
+      z-index: 1;
+    }
+    .logo-celio {
+      display: block;
+      margin: 2.5rem auto 1.2rem auto;
+      max-width: 180px;
+      width: 40vw;
+      height: auto;
+    }
+    .main-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+      margin-bottom: 2.2rem;
+      font-weight: 500;
+    }
+    .section {
+      background: var(--bubble-bg);
+      box-shadow: var(--bubble-shadow);
+      border-radius: 18px;
+      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      margin: 2.5rem auto;
+      max-width: 700px;
+      width: 95vw;
+      /* plus de border noire */
+    }
+    h2 {
+      color: #111;
+      border-bottom: 2px solid #111;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .accordion {
+      background: #fbeaec;
+      border-left: 5px solid var(--accent-color);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin: 0.7rem 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.08rem;
+      transition: background 0.3s;
+      box-shadow: 0 1px 6px 0 rgba(227,6,19,0.07);
+      color: var(--primary-color);
+    }
+    .accordion:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+    .panel {
+      display: none;
+      padding: 0.7rem 1.5rem 0.7rem 2.2rem;
+      background: #fff;
+      border-left: 3px solid var(--accent-color);
+      margin-bottom: 1rem;
+      border-radius: 0 0 8px 8px;
+      font-size: 1rem;
+      color: #333;
+    }
+    .bubble {
+      background: #fbeaec;
+      border: 2px solid var(--accent-color);
+      border-radius: 50px;
+      padding: 0.8rem 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      box-shadow: 0 1px 6px 0 rgba(227,6,19,0.07);
+      transition: all 0.2s;
+    }
+    .bubble:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: scale(1.07);
+    }
+    .btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 30px;
+      padding: 0.7rem 1.7rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      box-shadow: 0 2px 8px 0 rgba(227,6,19,0.08);
+    }
+    .btn:hover {
+      background: var(--btn-hover);
+      color: var(--btn-text);
+    }
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: #888;
+      font-size: 1rem;
+      padding-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      cursor: pointer;
+    }
+    label input[type="checkbox"] {
+      display: none;
+    }
+    label .accordion {
+      background: #fbeaec;
+      border-left: 5px solid var(--accent-color);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin: 0.7rem 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.08rem;
+      transition: background 0.3s;
+      box-shadow: 0 1px 6px 0 rgba(227,6,19,0.07);
+      color: var(--primary-color);
+    }
+    label input[type="checkbox"]:checked + .accordion + .panel {
+      display: block;
+    }
+    .bubble-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+    .skill-btn {
+      background: none;
+      border: 2px solid #111;
+      color: #111;
+      border-radius: 8px;
+      padding: 0.7rem 1.3rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0.2rem 0.3rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 1px 6px 0 rgba(227,6,19,0.07);
+      outline: none;
+    }
+    .skill-btn:hover, .skill-btn:focus {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+      transform: scale(1.07);
+    }
+    #map {
+      width: 100%;
+      height: 320px;
+      border-radius: 16px;
+      margin: 2.5rem 0 1.5rem 0;
+      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
+      border: 2px solid #111;
+    }
+    @media (max-width: 600px) {
+      .main-title { font-size: 1.5rem; }
+      .section { padding: 1.2rem 0.5rem; }
+      .bubble { font-size: 0.95rem; padding: 0.7rem 1rem; }
+      h2 { font-size: 1.1rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <div class="overlay-bg"></div>
+  <div class="main-content-celio">
+    <img src="img/logo_celio%20.png" alt="Celio" class="logo-celio" />
+    <div class="main-title">Stage de vente chez Celio</div>
+    <div class="subtitle">Période : du 21 mai au 8 juin 2024</div>
+    <div class="section">
+      <h2>Missions réalisées chez Celio</h2>
+      <label>
+        <input type="checkbox" />
+        <div class="accordion">Accueil et ouverture des livraisons</div>
+        <div class="panel">Réception des colis et organisation pour mise en rayon.</div>
+      </label>
+      <label>
+        <input type="checkbox" />
+        <div class="accordion">Mise en rayon et merchandising</div>
+        <div class="panel">Disposition des produits, respect des visuels et PLV.</div>
+      </label>
+      <label>
+        <input type="checkbox" />
+        <div class="accordion">Conseil et vente</div>
+        <div class="panel">Accueil chaleureux, conseil client, vente directe.</div>
+      </label>
+      <label>
+        <input type="checkbox" />
+        <div class="accordion">Encaissement et fidélisation</div>
+        <div class="panel">Encaissement, gestion des retours, proposition de ventes complémentaires.</div>
+      </label>
+      <label>
+        <input type="checkbox" />
+        <div class="accordion">Suivi des stocks & chiffre d’affaires</div>
+        <div class="panel">Mise à jour des stocks, calcul du CA, participation à l’ouverture et la fermeture du magasin.</div>
+      </label>
+      <label>
+        <input type="checkbox" />
+        <div class="accordion">Réunions internes</div>
+        <div class="panel">Participation à une visio entre la directrice du magasin et le directeur régional.</div>
+      </label>
+    </div>
+    <div class="section">
+      <h2>Compétences comportementales</h2>
+      <div class="bubble-container">
+        <button class="skill-btn">Aisance relationnelle</button>
+        <button class="skill-btn">Autonomie</button>
+        <button class="skill-btn">Esprit d’équipe</button>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Localisation du magasin Celio</h2>
+      <div id="map"></div>
+    </div>
+    <footer>
+      <div>Vendeur stagiaire – Celio, Lyon</div>
+    </footer>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([45.68091478881045, 4.792839611295986], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 19
+    }).addTo(map);
+    L.marker([45.68091478881045, 4.792839611295986]).addTo(map)
+      .bindPopup('Celio')
+      .openPopup();
+  </script>
+</body>
+</html>
