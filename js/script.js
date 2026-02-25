@@ -5,6 +5,12 @@ AOS.init({
     duration: 800,
 });
 
+// Keep copyright year in sync with current year
+const copyrightYear = document.getElementById('copyright-year');
+if (copyrightYear) {
+    copyrightYear.textContent = new Date().getFullYear();
+}
+
 // Navbar blur on scroll
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
