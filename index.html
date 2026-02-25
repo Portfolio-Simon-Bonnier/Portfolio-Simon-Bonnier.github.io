@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Bonnier - Portfolio BUT TC</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="js/tailwind-config.js"></script>
+    <!-- Tailwind CSS (CDN pour un fichier unique) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header / Navbar -->
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="text-2xl font-bold text-accent tracking-tight">
+                    S<span class="text-brand">.Bonnier</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-sm font-medium hover:text-brand transition-colors">Accueil</a>
+                    <a href="#about" class="text-sm font-medium hover:text-brand transition-colors">À propos</a>
+                    <a href="#competences" class="text-sm font-medium hover:text-brand transition-colors">Compétences</a>
+                    <a href="#experiences" class="text-sm font-medium hover:text-brand transition-colors">Expériences & Projets</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-brand transition-colors">Contact</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">Accueil</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">À propos</a>
+                <a href="#competences" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">Compétences</a>
+                <a href="#experiences" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">Expériences & Projets</a>
+                <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Prend toute la page) -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-br from-white to-brand-light/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                
+                <!-- Hero Text -->
+                <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="text-brand font-semibold tracking-wider uppercase text-sm mb-3 block">Bonjour, je suis</span>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-accent mb-4 leading-tight">
+                        Simon <br class="hidden md:block" /><span class="text-brand">Bonnier</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-600 font-medium mb-6">
+                        Étudiant en BUT Techniques de Commercialisation
+                    </p>
+                    <p class="text-base text-slate-500 mb-8 max-w-lg mx-auto md:mx-0">
+                        Passionné par la relation client, la négociation et la stratégie commerciale. À la recherche de nouveaux défis pour construire un management global et performant.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+                        <a href="#experiences" class="px-8 py-4 bg-brand text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Découvrir mon portfolio
+                        </a>
+                        <a href="#contact" class="px-8 py-4 bg-white text-accent border-2 border-slate-200 rounded-full font-semibold hover:border-brand hover:text-brand transition-all">
+                            Me contacter
+                        </a>
+                    </div>
+
+                    <!-- Socials -->
+                    <div class="mt-10 flex items-center justify-center md:justify-start gap-6">
+                        <a href="https://www.linkedin.com/in/simon-bonnier" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md text-slate-600 hover:text-[#0077b5] hover:shadow-lg transition-all">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="mailto:simon.bonnier5@gmail.com" class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md text-slate-600 hover:text-brand hover:shadow-lg transition-all">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="relative w-72 h-72 md:w-96 md:h-[500px] lg:w-[450px] lg:h-[600px] hero-img-container">
+                        <!-- Remplacer le src par le vrai chemin de l'image de Simon -->
+                        <img src="img/hero/hero.png" alt="Simon Bonnier" class="w-full h-full object-cover rounded-3xl shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-12 h-12 rounded-full bg-brand-light flex items-center justify-center text-brand text-2xl">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-medium">Parcours</p>
+                                <p class="font-bold text-accent">BUT TC - 2ème année</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION A PROPOS & PROJET PRO -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2">Mon Profil</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-accent">À propos de moi</h3>
+                <div class="w-24 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Texte CV -->
+                <div data-aos="fade-right">
+                    <h4 class="text-2xl font-bold mb-4 text-accent">De la théorie à la pratique</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-justify">
+                        Actuellement en <strong>BUT Techniques de Commercialisation</strong> à l'IUT Jean Monnet de Saint-Étienne, j'acquiers une solide expertise en négociation, en gestion de la relation client et en analyse de marchés. 
+                    </p>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-justify">
+                        Une première expérience en milieu bancaire (Crédit Agricole) m'a offert une vision très concrète des enjeux financiers et économiques, tant pour les entreprises que pour les particuliers. Calme, réfléchi et passionné de sport, j'applique la rigueur et la motivation acquises au quotidien dans mes projets professionnels.
+                    </p>
+                    
+                    <div class="bg-brand-light p-6 rounded-2xl border-l-4 border-brand mb-8">
+                        <h5 class="font-bold text-brand-dark mb-2"><i class="fas fa-bullseye mr-2"></i> Mon Projet Professionnel</h5>
+                        <p class="text-sm text-brand-dark leading-relaxed">
+                            Mon ambition est d'intégrer un <strong>Programme Grande École</strong> pour approfondir mes connaissances en stratégie et en finance, et ainsi développer une vision plus globale du management.
+                        </p>
+                    </div>
+
+                    <a href="img/CV Bonnier_Simon.pdf" download class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-lg font-medium hover:bg-slate-800 transition-colors">
+                        <i class="fas fa-download mr-2"></i> Télécharger mon CV
+                    </a>
+                </div>
+
+                <!-- Infos Rapides -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
+                    <!-- Coordonnées -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="font-semibold text-accent mb-1">Localisation</h4>
+                        <p class="text-sm text-slate-500">Lyon, France</p>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4 class="font-semibold text-accent mb-1">Mobilité</h4>
+                        <p class="text-sm text-slate-500">Permis B</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4 class="font-semibold text-accent mb-1">Téléphone</h4>
+                        <a href="tel:0769483698" class="text-sm text-slate-500 hover:text-brand">07 69 48 36 98</a>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="font-semibold text-accent mb-1">Email</h4>
+                        <a href="mailto:simon.bonnier5@gmail.com" class="text-sm text-slate-500 hover:text-brand break-all">simon.bonnier5@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION COMPÉTENCES (Aligné BUT3) -->
+    <section id="competences" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2">Savoir-faire & Savoir-être</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-accent">Mes Compétences</h3>
+                <div class="w-24 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Hard Skills (Référentiel BUT) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                
+                <!-- Marketing -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-accent mb-4">Marketing & Stratégie</h4>
+                    <p class="text-slate-500 text-sm mb-4">Conduire des actions marketing, analyse des besoins, étude de marchés financiers.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Analyse de marché</li>
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Veille concurrentielle</li>
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Stratégie de positionnement</li>
+                    </ul>
+                </div>
+
+                <!-- Vente & Négociation -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-accent mb-4">Vente & Négociation</h4>
+                    <p class="text-slate-500 text-sm mb-4">Négociation commerciale, développement de portefeuille et conseil client.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Négociation commerciale</li>
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Gestion relation client (CRM)</li>
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Traitement des objections</li>
+                    </ul>
+                </div>
+
+                <!-- Outils & Langues -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-accent mb-4">Outils & Langues</h4>
+                    <p class="text-slate-500 text-sm mb-4">Maîtrise des outils informatiques d'analyse et compétences linguistiques.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Pack Office (Excel TCD, PPT)</li>
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Anglais : B2 (TOEIC : 865)</li>
+                        <li class="flex items-center text-sm font-medium text-slate-700"><i class="fas fa-check text-brand mr-2"></i> Espagnol : B1</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="bg-accent rounded-3xl p-8 md:p-12 text-white shadow-2xl" data-aos="zoom-in">
+                <div class="text-center mb-8">
+                    <h4 class="text-2xl font-bold mb-2">Compétences Comportementales (Soft Skills)</h4>
+                    <p class="text-slate-300">Les qualités humaines qui font la différence au quotidien.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-6 py-3 bg-white/10 rounded-full font-medium border border-white/20 hover:bg-white hover:text-accent transition-colors cursor-default">Rigueur</span>
+                    <span class="px-6 py-3 bg-white/10 rounded-full font-medium border border-white/20 hover:bg-white hover:text-accent transition-colors cursor-default">Sens du relationnel</span>
+                    <span class="px-6 py-3 bg-white/10 rounded-full font-medium border border-white/20 hover:bg-white hover:text-accent transition-colors cursor-default">Travail d'équipe</span>
+                    <span class="px-6 py-3 bg-white/10 rounded-full font-medium border border-white/20 hover:bg-white hover:text-accent transition-colors cursor-default">Adaptabilité</span>
+                    <span class="px-6 py-3 bg-white/10 rounded-full font-medium border border-white/20 hover:bg-white hover:text-accent transition-colors cursor-default">Autonomie</span>
+                    <span class="px-6 py-3 bg-white/10 rounded-full font-medium border border-white/20 hover:bg-white hover:text-accent transition-colors cursor-default">Organisation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION EXPÉRIENCES & PROJETS (Analyse exigée par BUT3) -->
+    <section id="experiences" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2">Mon Parcours</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-accent">Expériences & Projets</h3>
+                <div class="w-24 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
+                <p class="mt-4 text-slate-500 max-w-2xl mx-auto">Analyse de mes expériences professionnelles et académiques selon la méthode attendue pour l'évaluation des compétences (Contexte, Objectifs, Actions, Résultats).</p>
+            </div>
+
+            <div class="relative">
+                <!-- Ligne centrale de la timeline -->
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Expérience 1 : Crédit Agricole -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16" data-aos="fade-up">
+                    <div class="w-full md:w-5/12 mb-6 md:mb-0 md:text-right pr-0 md:pr-8">
+                        <div class="bg-brand-light text-brand inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">Sept 2025 - En cours</div>
+                        <h4 class="text-2xl font-bold text-accent">Attaché Clientèle</h4>
+                        <h5 class="text-lg text-slate-500 font-medium mb-4">Crédit Agricole Centre-Est (Alternance)</h5>
+                    </div>
+                    <!-- Point central -->
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-brand border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    
+                    <div class="w-full md:w-5/12 pl-0 md:pl-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                            <h6 class="font-bold text-accent mb-2 border-b pb-2"><i class="fas fa-briefcase text-brand mr-2"></i> Analyse de l'expérience</h6>
+                            <ul class="space-y-3 mt-3 text-sm">
+                                <li><strong class="text-brand">Objectifs :</strong> Accompagner les clients dans la gestion de leurs besoins bancaires et financiers.</li>
+                                <li><strong class="text-brand">Actions :</strong> Analyse des situations, proposition de solutions adaptées (épargne, moyens de paiement), identification d'opportunités commerciales lors des échanges.</li>
+                                <li><strong class="text-brand">Compétences :</strong> Relation client, conseil financier, écoute active.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet : CREASIM -->
+                <div class="relative flex flex-col md:flex-row-reverse items-center justify-between mb-16" data-aos="fade-up">
+                    <div class="w-full md:w-5/12 mb-6 md:mb-0 pl-0 md:pl-8">
+                        <div class="bg-blue-100 text-blue-700 inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">Février 2025</div>
+                        <h4 class="text-2xl font-bold text-accent">Projet Académique : CREASIM</h4>
+                        <h5 class="text-lg text-slate-500 font-medium mb-4">Simulation Commerciale (IUT)</h5>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-500 border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    
+                    <div class="w-full md:w-5/12 pr-0 md:pr-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                            <h6 class="font-bold text-accent mb-2 border-b pb-2"><i class="fas fa-project-diagram text-blue-500 mr-2"></i> Analyse du projet</h6>
+                            <ul class="space-y-3 mt-3 text-sm">
+                                <li><strong class="text-blue-600">Contexte :</strong> Élaboration d'une stratégie commerciale de A à Z en équipe.</li>
+                                <li><strong class="text-blue-600">Actions :</strong> Analyse des besoins clients, élaboration de recommandations, conception d'une offre et présentation orale.</li>
+                                <li><strong class="text-blue-600">Résultats :</strong> 2ème meilleure équipe de la simulation. Validation de la compétence "Vendre une offre commerciale".</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expérience 3 : McDonald's -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16" data-aos="fade-up">
+                    <div class="w-full md:w-5/12 mb-6 md:mb-0 md:text-right pr-0 md:pr-8">
+                        <div class="bg-slate-200 text-slate-700 inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">Fév 2024 - Juin 2025</div>
+                        <h4 class="text-2xl font-bold text-accent">Équipier Polyvalent</h4>
+                        <h5 class="text-lg text-slate-500 font-medium mb-4">McDonald's (CDI Étudiant)</h5>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-slate-400 border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    
+                    <div class="w-full md:w-5/12 pl-0 md:pl-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                            <h6 class="font-bold text-accent mb-2 border-b pb-2"><i class="fas fa-hamburger text-slate-500 mr-2"></i> Analyse de l'expérience</h6>
+                            <ul class="space-y-3 mt-3 text-sm">
+                                <li><strong class="text-slate-700">Contexte :</strong> Gestion du service en période de forte affluence (rushs soir/week-end).</li>
+                                <li><strong class="text-slate-700">Actions :</strong> Coordination avec une équipe de 6 à 10 personnes, fermetures tardives, clôture caisse.</li>
+                                <li><strong class="text-slate-700">Compétences :</strong> Gestion du stress, esprit d'équipe, rigueur, respect des process.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Engagement : SNU -->
+                 <div class="relative flex flex-col md:flex-row-reverse items-center justify-between" data-aos="fade-up">
+                    <div class="w-full md:w-5/12 mb-6 md:mb-0 pl-0 md:pl-8">
+                        <div class="bg-amber-100 text-amber-600 inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">2021 - 2023</div>
+                        <h4 class="text-2xl font-bold text-accent">Engagements Associatifs</h4>
+                        <h5 class="text-lg text-slate-500 font-medium mb-4">Service National Universel (SNU)</h5>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-amber-400 border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    
+                    <div class="w-full md:w-5/12 pr-0 md:pr-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                            <h6 class="font-bold text-accent mb-2 border-b pb-2"><i class="fas fa-hands-helping text-amber-500 mr-2"></i> Analyse de l'expérience</h6>
+                            <ul class="space-y-3 mt-3 text-sm">
+                                <li><strong class="text-amber-600">Actions :</strong> Missions solidaires avec Emmaüs (logistique, tri). Organisation d'événements sportifs (NordicWalkin Lyon, RUNINLYON).</li>
+                                <li><strong class="text-amber-600">Compétences :</strong> Sens de l'organisation, logistique, accueil du public, engagement citoyen.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Education Rapide (Diplômes) -->
+            <div class="mt-24 text-center" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-accent mb-8">Formations Académiques</h3>
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 w-full md:w-1/3 shadow-sm hover:shadow-md transition">
+                        <div class="text-brand text-3xl mb-3"><i class="fas fa-university"></i></div>
+                        <h4 class="font-bold text-lg mb-1">BUT TC</h4>
+                        <p class="text-sm text-slate-500 mb-2">IUT Jean Monnet, St-Étienne</p>
+                        <p class="text-xs font-semibold bg-brand-light text-brand inline-block px-2 py-1 rounded">2023 - Présent</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 w-full md:w-1/3 shadow-sm hover:shadow-md transition">
+                        <div class="text-slate-400 text-3xl mb-3"><i class="fas fa-school"></i></div>
+                        <h4 class="font-bold text-lg mb-1">Baccalauréat Général</h4>
+                        <p class="text-sm text-slate-500 mb-2">Lycée René Descartes (Mention AB)</p>
+                        <p class="text-xs font-semibold bg-slate-200 text-slate-600 inline-block px-2 py-1 rounded">2020 - 2023</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-accent text-white relative overflow-hidden">
+        <!-- Deco background -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand rounded-full filter blur-3xl opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-sm font-bold text-brand-light uppercase tracking-widest mb-2">Échangeons</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Contactez-moi</h3>
+                <p class="text-slate-400">Si mon profil vous intéresse pour une collaboration, une alternance ou un échange, n'hésitez pas à m'envoyer un message.</p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/20 shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
+                <form action="#" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Nom complet</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-white placeholder-slate-500" placeholder="Votre nom" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Adresse email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-white placeholder-slate-500" placeholder="vous@exemple.com" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-white placeholder-slate-500" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="inline-flex items-center px-8 py-4 bg-brand text-white rounded-full font-bold hover:bg-brand-dark transition-colors shadow-lg hover:shadow-xl w-full md:w-auto justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer le message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold text-white tracking-tight">S<span class="text-brand">.Bonnier</span></span>
+                <p class="text-sm mt-2">Portfolio BUT TC - Année 2025</p>
+            </div>
+            
+            <div class="flex space-x-6 mb-4 md:mb-0">
+                <a href="https://www.linkedin.com/in/simon-bonnier" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                    <span class="sr-only">LinkedIn</span>
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="mailto:simon.bonnier5@gmail.com" class="text-slate-400 hover:text-white transition-colors">
+                    <span class="sr-only">Email</span>
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+
+            <div class="text-sm">
+                &copy; 2025 Simon Bonnier. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AOS JS for animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
