@@ -10,14 +10,17 @@ const ROOT = __dirname;
 const DIST_DIR = path.join(ROOT, 'dist');
 const DIST_CSS_DIR = path.join(DIST_DIR, 'css');
 const DIST_JS_DIR = path.join(DIST_DIR, 'js');
+const DIST_IMG_DIR = path.join(DIST_DIR, 'img');
 const TMP_DIR = path.join(ROOT, '.build-tmp');
 const TMP_TAILWIND_PATH = path.join(TMP_DIR, 'tailwind.css');
+const CANONICAL_CV_NAME = 'CV - Simon BONNIER.pdf';
 
 async function ensureDirs() {
     await fs.rm(DIST_DIR, { recursive: true, force: true });
     await fs.rm(TMP_DIR, { recursive: true, force: true });
     await fs.mkdir(DIST_CSS_DIR, { recursive: true });
     await fs.mkdir(DIST_JS_DIR, { recursive: true });
+    await fs.mkdir(DIST_IMG_DIR, { recursive: true });
     await fs.mkdir(TMP_DIR, { recursive: true });
 }
 
@@ -97,10 +100,26 @@ async function copyStaticAssets() {
     }
 }
 
+async function copyCvPdf() {
+    const cvCandidates = [
+        path.join(ROOT, CANONICAL_CV_NAME),
+        path.join(ROOT, 'img', CANONICAL_CV_NAME),
+        path.join(ROOT, 'img', 'CV Bonnier_Simon.pdf'),
+    ];
+
+    const sourceCvPath = cvCandidates.find((candidate) => existsSync(candidate));
+    if (!sourceCvPath) {
+        process.stdout.write('Warning: CV PDF not found, skipping copy.\n');
+        return;
+    }
+
+    await fs.copyFile(sourceCvPath, path.join(DIST_IMG_DIR, CANONICAL_CV_NAME));
+}
+
 async function run() {
     await ensureDirs();
     buildTailwind();
-    await Promise.all([buildCss(), buildJs(), buildHtml(), copyStaticAssets()]);
+    await Promise.all([buildCss(), buildJs(), buildHtml(), copyStaticAssets(), copyCvPdf()]);
     await fs.rm(TMP_DIR, { recursive: true, force: true });
     process.stdout.write('Build complete: dist/index.html\n');
 }
