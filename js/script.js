@@ -73,4 +73,47 @@ document.addEventListener('DOMContentLoaded', () => {
             this.reset();
         });
     }
+
+    // Experience modals
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+
+    const closeModal = (modal) => {
+        if (modal && typeof modal.close === 'function') {
+            modal.close();
+        }
+    };
+
+    modalTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            const targetId = trigger.getAttribute('data-modal-target');
+            const modal = targetId ? document.getElementById(targetId) : null;
+            if (modal && typeof modal.showModal === 'function') {
+                modal.showModal();
+            }
+        });
+    });
+
+    modalCloseButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('dialog');
+            closeModal(modal);
+        });
+    });
+
+    const experienceModals = document.querySelectorAll('dialog.experience-modal');
+    experienceModals.forEach((modal) => {
+        modal.addEventListener('click', (event) => {
+            const rect = modal.getBoundingClientRect();
+            const isClickOutside =
+                event.clientX < rect.left ||
+                event.clientX > rect.right ||
+                event.clientY < rect.top ||
+                event.clientY > rect.bottom;
+
+            if (isClickOutside) {
+                closeModal(modal);
+            }
+        });
+    });
 });
