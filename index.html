@@ -43,7 +43,8 @@
                         <a href="#home" class="text-sm font-medium hover:text-brand transition-colors">{{txt_accueil}}</a>
                         <a href="#about" class="text-sm font-medium hover:text-brand transition-colors">{{txt_propos}}</a>
                         <a href="#competences" class="text-sm font-medium hover:text-brand transition-colors">{{txt_competences}}</a>
-                        <a href="#experiences" class="text-sm font-medium hover:text-brand transition-colors">{{txt_experiences_projets}}</a>
+                        <a href="#experiences-pro" class="text-sm font-medium hover:text-brand transition-colors">{{txt_experiences_professionnelles}}</a>
+                        <a href="#projets-engagements" class="text-sm font-medium hover:text-brand transition-colors">{{txt_projets_engagements}}</a>
                         <a href="#contact" class="text-sm font-medium hover:text-brand transition-colors">{{txt_contact}}</a>
                     </nav>
                     <a
@@ -81,7 +82,8 @@
                 <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_accueil}}</a>
                 <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_propos}}</a>
                 <a href="#competences" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_competences}}</a>
-                <a href="#experiences" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_experiences_projets}}</a>
+                <a href="#experiences-pro" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_experiences_professionnelles}}</a>
+                <a href="#projets-engagements" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_projets_engagements}}</a>
                 <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-brand-light hover:text-brand">{{txt_contact}}</a>
             </div>
         </div>
@@ -106,7 +108,7 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                        <a href="#experiences" class="px-6 py-3 md:px-8 md:py-4 bg-brand text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <a href="#experiences-pro" class="px-6 py-3 md:px-8 md:py-4 bg-brand text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             {{txt_decouvrir_portfolio}}
                         </a>
                         <a href="#contact" class="px-6 py-3 md:px-8 md:py-4 bg-white text-accent border-2 border-slate-200 rounded-full font-semibold hover:border-brand hover:text-brand transition-all">
@@ -298,12 +300,12 @@
         </div>
     </section>
 
-    <!-- SECTION EXPÉRIENCES & PROJETS (Analyse exigée par BUT3) -->
-    <section id="experiences" class="py-24 bg-white relative">
+    <!-- SECTION EXPÉRIENCES PROFESSIONNELLES -->
+    <section id="experiences-pro" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2">{{txt_parcours_2}}</h2>
-                <h3 class="text-3xl md:text-4xl font-extrabold text-accent">{{txt_experiences_projets}}</h3>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-accent">{{txt_experiences_professionnelles}}</h3>
                 <div class="w-24 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
                 <p class="mt-4 text-slate-500 max-w-2xl mx-auto">{{txt_analyse_experiences_professionnelles_academiques_selon_methode}}</p>
             </div>
@@ -334,6 +336,44 @@
                     </div>
                 </div>
 
+                <!-- Expérience 2 : McDonald's -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between" data-aos="fade-up">
+                    <div class="w-full md:w-5/12 mb-6 md:mb-0 md:text-right pr-0 md:pr-8">
+                        <div class="bg-slate-200 text-slate-700 inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">{{txt_fev_2024_juin_2025}}</div>
+                        <h4 class="text-2xl font-bold text-accent">{{txt_equipier_polyvalent}}</h4>
+                        <h5 class="text-lg text-slate-500 font-medium mb-4 flex items-center md:justify-end gap-3">{{txt_mcdonald_s_cdi_etudiant}}
+                            <img src="img/mcdo.svg" alt="{{attr_logo_mcdonald_s}}" class="h-10 w-auto">
+                        </h5>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-slate-400 border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    
+                    <div class="w-full md:w-5/12 pl-0 md:pl-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                            <p class="text-sm text-slate-600 mb-4">{{txt_garantir_service_rapide_conforme_normes_malgre}}</p>
+                            <button type="button" data-modal-target="modal-mcdonalds" class="inline-flex items-center px-5 py-3 bg-slate-700 text-white rounded-full font-semibold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl">
+                                {{txt_analyser_cette_experience}} <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PROJETS & ENGAGEMENTS -->
+    <section id="projets-engagements" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2">{{txt_parcours_2}}</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-accent">{{txt_projets_engagements}}</h3>
+                <div class="w-24 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
+                <p class="mt-4 text-slate-500 max-w-2xl mx-auto">{{txt_analyse_experiences_professionnelles_academiques_selon_methode}}</p>
+            </div>
+
+            <div class="relative">
+                <!-- Ligne centrale de la timeline -->
+                <div class="timeline-line hidden md:block"></div>
+
                 <!-- Projet : CREASIM -->
                 <div class="relative flex flex-col md:flex-row-reverse items-center justify-between mb-16" data-aos="fade-up">
                     <div class="w-full md:w-5/12 mb-6 md:mb-0 pl-0 md:pl-8">
@@ -353,29 +393,8 @@
                     </div>
                 </div>
 
-                <!-- Expérience 3 : McDonald's -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16" data-aos="fade-up">
-                    <div class="w-full md:w-5/12 mb-6 md:mb-0 md:text-right pr-0 md:pr-8">
-                        <div class="bg-slate-200 text-slate-700 inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">{{txt_fev_2024_juin_2025}}</div>
-                        <h4 class="text-2xl font-bold text-accent">{{txt_equipier_polyvalent}}</h4>
-                        <h5 class="text-lg text-slate-500 font-medium mb-4 flex items-center md:justify-end gap-3">{{txt_mcdonald_s_cdi_etudiant}}
-                            <img src="img/mcdo.svg" alt="{{attr_logo_mcdonald_s}}" class="h-10 w-auto">
-                        </h5>
-                    </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-slate-400 border-4 border-white shadow-md z-10 hidden md:block"></div>
-                    
-                    <div class="w-full md:w-5/12 pl-0 md:pl-8">
-                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100">
-                            <p class="text-sm text-slate-600 mb-4">{{txt_garantir_service_rapide_conforme_normes_malgre}}</p>
-                            <button type="button" data-modal-target="modal-mcdonalds" class="inline-flex items-center px-5 py-3 bg-slate-700 text-white rounded-full font-semibold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl">
-                                {{txt_analyser_cette_experience}} <i class="fas fa-arrow-right ml-2"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Engagement : SNU -->
-                 <div class="relative flex flex-col md:flex-row-reverse items-center justify-between" data-aos="fade-up">
+                <!-- Engagement : SNU -->
+                <div class="relative flex flex-col md:flex-row-reverse items-center justify-between" data-aos="fade-up">
                     <div class="w-full md:w-5/12 mb-6 md:mb-0 pl-0 md:pl-8">
                         <div class="bg-amber-100 text-amber-600 inline-block px-4 py-1 rounded-full text-sm font-bold mb-3">{{txt_2021_2023}}</div>
                         <h4 class="text-2xl font-bold text-accent">{{txt_engagements_associatifs}}</h4>
@@ -395,7 +414,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             
             <!-- Education Rapide (Diplômes) -->

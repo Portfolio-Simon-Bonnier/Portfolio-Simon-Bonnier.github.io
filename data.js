@@ -181,7 +181,9 @@ module.exports = {
         "txt_lang_toggle": "FR / EN",
         "attr_switch_language": "Changer la langue",
         "attr_flag_fr": "Drapeau francais",
-        "attr_flag_gb": "Drapeau anglais"
+        "attr_flag_gb": "Drapeau anglais",
+        "txt_experiences_professionnelles": "Experiences Professionnelles",
+        "txt_projets_engagements": "Projets & Engagements"
     },
     "en": {
         "lang_code": "en",
@@ -365,6 +367,8 @@ module.exports = {
         "txt_lang_toggle": "FR / EN",
         "attr_switch_language": "Switch language",
         "attr_flag_fr": "French flag",
-        "attr_flag_gb": "British flag"
+        "attr_flag_gb": "British flag",
+        "txt_experiences_professionnelles": "Professional Experience",
+        "txt_projets_engagements": "Projects & Engagements"
     }
 };
