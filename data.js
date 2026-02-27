@@ -176,7 +176,12 @@ module.exports = {
         "attr_logo_universite_jean_monnet_saint_etienne": "Logo Université Jean Monnet Saint-Étienne",
         "attr_votre_nom": "Votre nom",
         "attr_exemple_com": "vous@exemple.com",
-        "attr_votre_message": "Votre message..."
+        "attr_votre_message": "Votre message...",
+        "lang_toggle_href": "en/",
+        "txt_lang_toggle": "FR / EN",
+        "attr_switch_language": "Changer la langue",
+        "attr_flag_fr": "Drapeau francais",
+        "attr_flag_gb": "Drapeau anglais"
     },
     "en": {
         "lang_code": "en",
@@ -355,6 +360,11 @@ module.exports = {
         "attr_logo_universite_jean_monnet_saint_etienne": "Jean Monnet University logo",
         "attr_votre_nom": "Your name",
         "attr_exemple_com": "you@example.com",
-        "attr_votre_message": "Your message..."
+        "attr_votre_message": "Your message...",
+        "lang_toggle_href": "../",
+        "txt_lang_toggle": "FR / EN",
+        "attr_switch_language": "Switch language",
+        "attr_flag_fr": "French flag",
+        "attr_flag_gb": "British flag"
     }
 };
