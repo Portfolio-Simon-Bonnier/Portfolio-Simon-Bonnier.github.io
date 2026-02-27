@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert("Merci ! Dans une version finale, ce formulaire sera reli\u00e9 \u00e0 une adresse email ou une base de donn\u00e9es.");
+            const submitMessage = form.getAttribute('data-submit-message') || 'Thank you!';
+            alert(submitMessage);
             this.reset();
         });
     }

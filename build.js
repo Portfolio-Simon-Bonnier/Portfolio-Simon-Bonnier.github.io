@@ -5,6 +5,7 @@ const { execFileSync } = require('child_process');
 const CleanCSS = require('clean-css');
 const { minify: minifyJs } = require('terser');
 const { minify: minifyHtml } = require('html-minifier-terser');
+const i18nData = require('./data');
 
 const ROOT = __dirname;
 const DIST_DIR = path.join(ROOT, 'dist');
@@ -77,16 +78,37 @@ function rewriteHtmlForProduction(html) {
     return out;
 }
 
-async function buildHtml() {
-    const html = await fs.readFile(path.join(ROOT, 'index.html'), 'utf8');
-    const prepared = rewriteHtmlForProduction(html);
-    const minified = await minifyHtml(prepared, {
-        collapseWhitespace: true,
-        removeComments: true,
-        minifyCSS: false,
-        minifyJS: false,
+function renderTemplate(template, dictionary) {
+    return template.replace(/{{\s*([a-zA-Z0-9_]+)\s*}}/g, (match, key) => {
+        if (!(key in dictionary)) {
+            throw new Error(`Missing i18n key "${key}" in language dictionary.`);
+        }
+        return String(dictionary[key]);
     });
-    await fs.writeFile(path.join(DIST_DIR, 'index.html'), minified, 'utf8');
+}
+
+async function buildHtml() {
+    const template = await fs.readFile(path.join(ROOT, 'index.html'), 'utf8');
+    const preparedTemplate = rewriteHtmlForProduction(template);
+    const languages = Object.entries(i18nData);
+
+    for (const [langCode, dictionary] of languages) {
+        const rendered = renderTemplate(preparedTemplate, dictionary);
+        const minified = await minifyHtml(rendered, {
+            collapseWhitespace: true,
+            removeComments: true,
+            minifyCSS: false,
+            minifyJS: false,
+        });
+
+        const langDir = path.join(DIST_DIR, langCode);
+        await fs.mkdir(langDir, { recursive: true });
+        await fs.writeFile(path.join(langDir, 'index.html'), minified, 'utf8');
+
+        if (langCode === 'fr') {
+            await fs.writeFile(path.join(DIST_DIR, 'index.html'), minified, 'utf8');
+        }
+    }
 }
 
 async function copyStaticAssets() {
@@ -121,7 +143,7 @@ async function run() {
     buildTailwind();
     await Promise.all([buildCss(), buildJs(), buildHtml(), copyStaticAssets(), copyCvPdf()]);
     await fs.rm(TMP_DIR, { recursive: true, force: true });
-    process.stdout.write('Build complete: dist/index.html\n');
+    process.stdout.write('Build complete: dist/index.html, dist/fr/index.html, dist/en/index.html\n');
 }
 
 run().catch(async (error) => {
