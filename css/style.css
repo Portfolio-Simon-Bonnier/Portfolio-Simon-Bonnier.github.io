@@ -1,15 +1,18 @@
-/* Custom styles complementing Tailwind */
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.hero-img-container {
-    position: relative;
-    z-index: 1;
+a,
+button {
+    min-height: 44px;
+    min-width: 44px;
 }
 
-/* Timeline styles */
+.timeline-wrapper {
+    position: relative;
+}
+
 .timeline-line {
     position: absolute;
     left: 15px;
@@ -19,14 +22,30 @@ body {
     background-color: #e5e7eb;
 }
 
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background-color: #0ea5e9;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 1px #cbd5e1;
+}
+
 @media (min-width: 768px) {
     .timeline-line {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    .timeline-item::before {
+        left: calc(50% - 8px);
+    }
 }
 
-/* Glassmorphism effect for navbar */
 .glass-nav {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
