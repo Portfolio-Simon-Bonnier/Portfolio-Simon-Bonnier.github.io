@@ -525,27 +525,25 @@
             </div>
 
             <div class="bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/20 shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-                <form action="#" method="POST" class="space-y-6" data-submit-message="{{form_submit_alert}}">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">{{txt_nom_complet}}</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-white placeholder-slate-500" placeholder="{{attr_votre_nom}}" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">{{txt_adresse_email}}</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-white placeholder-slate-500" placeholder="{{attr_exemple_com}}" required>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-slate-300 mb-2">{{txt_message}}</label>
-                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-white placeholder-slate-500" placeholder="{{attr_votre_message}}" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="inline-flex items-center px-8 py-4 bg-brand text-white rounded-full font-bold hover:bg-brand-dark transition-colors shadow-lg hover:shadow-xl w-full md:w-auto justify-center">
-                            <i class="fas fa-paper-plane mr-2"></i> {{txt_envoyer_message}}
+                <div class="mx-auto max-w-2xl rounded-2xl border border-white/20 bg-slate-900/30 p-6 md:p-8">
+                    <p class="text-xs uppercase tracking-[0.2em] text-slate-300 mb-3">{{txt_adresse_email}}</p>
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <p id="contact-email" class="text-xl md:text-2xl font-bold text-white break-all">{{txt_simon_bonnier5_gmail_com}}</p>
+                        <button
+                            id="copy-email-btn"
+                            type="button"
+                            data-copy-text="{{txt_simon_bonnier5_gmail_com}}"
+                            data-label-copy="{{txt_copy_email_button}}"
+                            data-label-copied="{{txt_copied_email_button}}"
+                            aria-label="{{attr_copy_email}}"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark transition-colors shadow-lg whitespace-nowrap"
+                        >
+                            <i class="fas fa-copy" data-copy-icon></i>
+                            <i class="fas fa-check hidden" data-check-icon></i>
+                            <span data-copy-label>{{txt_copy_email_button}}</span>
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>

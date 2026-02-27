@@ -183,7 +183,10 @@ module.exports = {
         "attr_flag_fr": "Drapeau francais",
         "attr_flag_gb": "Drapeau anglais",
         "txt_experiences_professionnelles": "Experiences Professionnelles",
-        "txt_projets_engagements": "Projets & Engagements"
+        "txt_projets_engagements": "Projets & Engagements",
+        "txt_copy_email_button": "Copier",
+        "txt_copied_email_button": "Copie !",
+        "attr_copy_email": "Copier l adresse email"
     },
     "en": {
         "lang_code": "en",
@@ -369,6 +372,9 @@ module.exports = {
         "attr_flag_fr": "French flag",
         "attr_flag_gb": "British flag",
         "txt_experiences_professionnelles": "Professional Experience",
-        "txt_projets_engagements": "Projects & Engagements"
+        "txt_projets_engagements": "Projects & Engagements",
+        "txt_copy_email_button": "Copy",
+        "txt_copied_email_button": "Copied!",
+        "attr_copy_email": "Copy email address"
     }
 };

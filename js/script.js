@@ -64,14 +64,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form submission behavior (prevent default for demo)
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const submitMessage = form.getAttribute('data-submit-message') || 'Thank you!';
-            alert(submitMessage);
-            this.reset();
+    // Click-to-copy contact email
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    if (copyEmailBtn) {
+        let feedbackTimeout = null;
+
+        const copyIcon = copyEmailBtn.querySelector('[data-copy-icon]');
+        const checkIcon = copyEmailBtn.querySelector('[data-check-icon]');
+        const labelEl = copyEmailBtn.querySelector('[data-copy-label]');
+        const defaultLabel = copyEmailBtn.getAttribute('data-label-copy') || 'Copy';
+        const copiedLabel = copyEmailBtn.getAttribute('data-label-copied') || 'Copied!';
+        const copyText = copyEmailBtn.getAttribute('data-copy-text') || '';
+
+        const setDefaultState = () => {
+            copyEmailBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+            copyEmailBtn.classList.add('bg-brand', 'hover:bg-brand-dark');
+            if (copyIcon) copyIcon.classList.remove('hidden');
+            if (checkIcon) checkIcon.classList.add('hidden');
+            if (labelEl) labelEl.textContent = defaultLabel;
+        };
+
+        const setCopiedState = () => {
+            copyEmailBtn.classList.remove('bg-brand', 'hover:bg-brand-dark');
+            copyEmailBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+            if (copyIcon) copyIcon.classList.add('hidden');
+            if (checkIcon) checkIcon.classList.remove('hidden');
+            if (labelEl) labelEl.textContent = copiedLabel;
+        };
+
+        setDefaultState();
+
+        copyEmailBtn.addEventListener('click', async () => {
+            if (!copyText) return;
+
+            try {
+                await navigator.clipboard.writeText(copyText);
+                setCopiedState();
+                if (feedbackTimeout) clearTimeout(feedbackTimeout);
+                feedbackTimeout = setTimeout(() => {
+                    setDefaultState();
+                }, 2000);
+            } catch (error) {
+                setDefaultState();
+            }
         });
     }
 
