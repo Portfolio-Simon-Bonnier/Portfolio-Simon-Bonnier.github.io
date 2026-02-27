@@ -99,7 +99,11 @@ async function buildHtml() {
     });
     await fs.writeFile(path.join(DIST_DIR, 'index.html'), frMinified, 'utf8');
 
-    const enRendered = renderTemplate(preparedTemplate, i18nData.en);
+    const enPreparedTemplate = preparedTemplate.replace(
+        /(href|src)=(["'])(css|js|img)\//g,
+        '$1=$2../$3/'
+    );
+    const enRendered = renderTemplate(enPreparedTemplate, i18nData.en);
     const enMinified = await minifyHtml(enRendered, {
         collapseWhitespace: true,
         removeComments: true,
