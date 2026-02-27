@@ -90,25 +90,25 @@ function renderTemplate(template, dictionary) {
 async function buildHtml() {
     const template = await fs.readFile(path.join(ROOT, 'index.html'), 'utf8');
     const preparedTemplate = rewriteHtmlForProduction(template);
-    const languages = Object.entries(i18nData);
+    const frRendered = renderTemplate(preparedTemplate, i18nData.fr);
+    const frMinified = await minifyHtml(frRendered, {
+        collapseWhitespace: true,
+        removeComments: true,
+        minifyCSS: false,
+        minifyJS: false,
+    });
+    await fs.writeFile(path.join(DIST_DIR, 'index.html'), frMinified, 'utf8');
 
-    for (const [langCode, dictionary] of languages) {
-        const rendered = renderTemplate(preparedTemplate, dictionary);
-        const minified = await minifyHtml(rendered, {
-            collapseWhitespace: true,
-            removeComments: true,
-            minifyCSS: false,
-            minifyJS: false,
-        });
-
-        const langDir = path.join(DIST_DIR, langCode);
-        await fs.mkdir(langDir, { recursive: true });
-        await fs.writeFile(path.join(langDir, 'index.html'), minified, 'utf8');
-
-        if (langCode === 'fr') {
-            await fs.writeFile(path.join(DIST_DIR, 'index.html'), minified, 'utf8');
-        }
-    }
+    const enRendered = renderTemplate(preparedTemplate, i18nData.en);
+    const enMinified = await minifyHtml(enRendered, {
+        collapseWhitespace: true,
+        removeComments: true,
+        minifyCSS: false,
+        minifyJS: false,
+    });
+    const enDir = path.join(DIST_DIR, 'en');
+    await fs.mkdir(enDir, { recursive: true });
+    await fs.writeFile(path.join(enDir, 'index.html'), enMinified, 'utf8');
 }
 
 async function copyStaticAssets() {
@@ -143,7 +143,7 @@ async function run() {
     buildTailwind();
     await Promise.all([buildCss(), buildJs(), buildHtml(), copyStaticAssets(), copyCvPdf()]);
     await fs.rm(TMP_DIR, { recursive: true, force: true });
-    process.stdout.write('Build complete: dist/index.html, dist/fr/index.html, dist/en/index.html\n');
+    process.stdout.write('Build complete: dist/index.html and dist/en/index.html\n');
 }
 
 run().catch(async (error) => {
