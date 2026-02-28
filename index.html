@@ -27,6 +27,36 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-slate-50 text-slate-800">
+    <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+        <defs>
+            <symbol id="icon-linkedin" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </g>
+            </symbol>
+            <symbol id="icon-download" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 4v10"></path>
+                    <path d="M8 10l4 4 4-4"></path>
+                    <path d="M5 20h14"></path>
+                </g>
+            </symbol>
+            <symbol id="icon-copy" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1 -2 -2V5a2 2 0 0 1 2 -2h9a2 2 0 0 1 2 2v1"></path>
+                </g>
+            </symbol>
+            <symbol id="icon-send" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13"></path>
+                    <path d="M22 2 15 22l-4 -9 -9 -4z"></path>
+                </g>
+            </symbol>
+        </defs>
+    </svg>
 
     <!-- Header / Navbar -->
     <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
@@ -512,37 +542,35 @@
     </dialog>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 bg-accent text-white relative overflow-hidden">
-        <!-- Deco background -->
+    <section id="contact" class="py-24 bg-accent text-white relative overflow-hidden text-center">
         <div class="absolute top-0 right-0 w-64 h-64 bg-brand rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand rounded-full filter blur-3xl opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-sm font-bold text-brand-light uppercase tracking-widest mb-2">{{txt_echangeons}}</h2>
-                <h3 class="text-3xl md:text-4xl font-extrabold mb-4">{{txt_contactez_moi}}</h3>
-                <p class="text-slate-400">{{txt_si_profil_interesse_collaboration_alternance_ou}}</p>
-            </div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-2" data-aos="fade-up">{{txt_echangeons}}</h2>
+            <h3 class="text-3xl md:text-4xl font-extrabold mb-6" data-aos="fade-up">{{txt_contactez_moi}}</h3>
+            <p class="text-slate-400 mb-10 text-lg" data-aos="fade-up" data-aos-delay="100">
+                {{txt_si_profil_interesse_collaboration_alternance_ou}}
+            </p>
+            
+            <div class="flex flex-col items-center gap-6" data-aos="zoom-in" data-aos-delay="200">
+                <div
+                    id="email-hybrid-container"
+                    class="relative group flex items-center justify-center transition-opacity duration-500"
+                    data-copy-label="{{txt_copy_email_button}}"
+                    data-copied-label="{{txt_copied_email_button}}"
+                    data-send-label="{{attr_send_email}}"
+                ></div>
 
-            <div class="bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/20 shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
-                <div class="mx-auto max-w-2xl rounded-2xl border border-white/20 bg-slate-900/30 p-6 md:p-8">
-                    <p class="text-xs uppercase tracking-[0.2em] text-slate-300 mb-3">{{txt_adresse_email}}</p>
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                        <p id="contact-email" class="text-xl md:text-2xl font-bold text-white break-all">{{txt_simon_bonnier5_gmail_com}}</p>
-                        <button
-                            id="copy-email-btn"
-                            type="button"
-                            data-copy-text="{{txt_simon_bonnier5_gmail_com}}"
-                            data-label-copy="{{txt_copy_email_button}}"
-                            data-label-copied="{{txt_copied_email_button}}"
-                            aria-label="{{attr_copy_email}}"
-                            class="inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark transition-colors shadow-lg whitespace-nowrap"
-                        >
-                            <i class="fas fa-copy" data-copy-icon></i>
-                            <i class="fas fa-check hidden" data-check-icon></i>
-                            <span data-copy-label>{{txt_copy_email_button}}</span>
-                        </button>
-                    </div>
+                <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto mt-4">
+                    <a href="{{cv_link}}" download target="_blank" rel="noopener noreferrer" class="group w-full md:w-auto px-8 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-md font-bold transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <svg class="text-slate-300 group-hover:text-white transition-colors flex-shrink-0 w-5 h-5" aria-hidden="true" focusable="false"><use href="#icon-download"></use></svg>
+                        <span class="whitespace-nowrap">{{txt_telecharger_cv}}</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/simon-bonnier" target="_blank" rel="noreferrer" class="group w-full md:w-auto px-8 py-3 border border-brand/50 text-brand-light hover:text-white rounded-md font-bold transition-all flex items-center justify-center gap-2 hover:bg-brand/20 backdrop-blur-sm">
+                        <svg class="text-brand group-hover:text-white transition-colors flex-shrink-0 w-5 h-5" aria-hidden="true" focusable="false"><use href="#icon-linkedin"></use></svg>
+                        <span class="whitespace-nowrap">{{txt_contact_linkedin}}</span>
+                    </a>
                 </div>
             </div>
         </div>

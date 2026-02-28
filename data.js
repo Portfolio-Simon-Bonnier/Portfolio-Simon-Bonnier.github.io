@@ -186,11 +186,13 @@ module.exports = {
         "txt_projets_engagements": "Projets & Engagements",
         "txt_copy_email_button": "Copier",
         "txt_copied_email_button": "Copie !",
-        "attr_copy_email": "Copier l adresse email"
+        "attr_copy_email": "Copier l adresse email",
+        "txt_contact_linkedin": "Me contacter sur LinkedIn",
+        "attr_send_email": "Envoyer un email"
     },
     "en": {
         "lang_code": "en",
-        "cv_link": "img/CV - Simon BONNIER.pdf",
+        "cv_link": "../img/CV - Simon BONNIER.pdf",
         "form_submit_alert": "Thank you! In a final version, this form will be connected to an email address or a database.",
         "txt_simon_bonnier_portfolio_but_techniques_commercialisation": "Simon Bonnier - Business and Marketing Technology Degree Portfolio",
         "txt_s": "S",
@@ -375,6 +377,8 @@ module.exports = {
         "txt_projets_engagements": "Projects & Engagements",
         "txt_copy_email_button": "Copy",
         "txt_copied_email_button": "Copied!",
-        "attr_copy_email": "Copy email address"
+        "attr_copy_email": "Copy email address",
+        "txt_contact_linkedin": "Contact me on LinkedIn",
+        "attr_send_email": "Send email"
     }
 };

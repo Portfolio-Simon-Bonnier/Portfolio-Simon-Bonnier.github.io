@@ -64,51 +64,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Click-to-copy contact email
-    const copyEmailBtn = document.getElementById('copy-email-btn');
-    if (copyEmailBtn) {
-        let feedbackTimeout = null;
+    // Hybrid Email Logic (Obfuscation)
+    function initHybridEmail() {
+        const container = document.getElementById('email-hybrid-container');
+        if (!container) return;
 
-        const copyIcon = copyEmailBtn.querySelector('[data-copy-icon]');
-        const checkIcon = copyEmailBtn.querySelector('[data-check-icon]');
-        const labelEl = copyEmailBtn.querySelector('[data-copy-label]');
-        const defaultLabel = copyEmailBtn.getAttribute('data-label-copy') || 'Copy';
-        const copiedLabel = copyEmailBtn.getAttribute('data-label-copied') || 'Copied!';
-        const copyText = copyEmailBtn.getAttribute('data-copy-text') || '';
+        const rotor = [19, 7, 23, 11, 5];
+        // "simon.bonnier5@gmail.com" obfuscated
+        const obfuscatedEmail = [100, 110, 122, 100, 107, 61, 101, 104, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 104, 102];
+        const decodedEmail = obfuscatedEmail
+            .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
+            .join('');
 
-        const setDefaultState = () => {
-            copyEmailBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
-            copyEmailBtn.classList.add('bg-brand', 'hover:bg-brand-dark');
-            if (copyIcon) copyIcon.classList.remove('hidden');
-            if (checkIcon) checkIcon.classList.add('hidden');
-            if (labelEl) labelEl.textContent = defaultLabel;
-        };
+        const copyLabel = container.getAttribute('data-copy-label') || 'Copy';
+        const copiedLabel = container.getAttribute('data-copied-label') || 'Copied!';
+        const sendLabel = container.getAttribute('data-send-label') || 'Send email';
 
-        const setCopiedState = () => {
-            copyEmailBtn.classList.remove('bg-brand', 'hover:bg-brand-dark');
-            copyEmailBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
-            if (copyIcon) copyIcon.classList.add('hidden');
-            if (checkIcon) checkIcon.classList.remove('hidden');
-            if (labelEl) labelEl.textContent = copiedLabel;
-        };
+        container.innerHTML = `
+            <div class="inline-flex rounded-md shadow-lg isolate">
+                <button type="button" id="btn-copy-action"
+                    class="relative inline-flex items-center gap-x-2 rounded-l-md bg-brand px-5 py-3 text-sm font-bold text-white hover:bg-brand-dark focus:z-10 focus:outline-none transition-all">
+                    <svg class="w-4 h-4" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg>
+                    <span>${decodedEmail}</span>
+                </button>
+                <a href="mailto:${decodedEmail}"
+                    class="relative -ml-px inline-flex items-center rounded-r-md bg-brand px-4 py-3 text-white hover:bg-brand-dark focus:z-10 focus:outline-none transition-all border-l border-white/20"
+                    aria-label="${sendLabel}">
+                    <svg class="w-4 h-4" aria-hidden="true" focusable="false"><use href="#icon-send"></use></svg>
+                </a>
+            </div>
+            <div id="copy-toast" class="absolute -top-10 left-1/2 -translate-x-1/2 translate-y-2 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded opacity-0 transition-all duration-300 pointer-events-none">
+                ${copiedLabel}
+            </div>
+        `;
 
-        setDefaultState();
+        const copyBtn = document.getElementById('btn-copy-action');
+        const toast = document.getElementById('copy-toast');
+        if (!copyBtn || !toast) return;
 
-        copyEmailBtn.addEventListener('click', async () => {
-            if (!copyText) return;
-
+        copyBtn.addEventListener('click', async () => {
             try {
-                await navigator.clipboard.writeText(copyText);
-                setCopiedState();
-                if (feedbackTimeout) clearTimeout(feedbackTimeout);
-                feedbackTimeout = setTimeout(() => {
-                    setDefaultState();
+                await navigator.clipboard.writeText(decodedEmail);
+                const textSpan = copyBtn.querySelector('span');
+                const originalText = textSpan ? textSpan.innerText : decodedEmail;
+                if (textSpan) textSpan.innerText = copiedLabel;
+                copyBtn.classList.add('bg-green-500');
+                copyBtn.classList.remove('bg-brand');
+                toast.classList.remove('opacity-0', 'translate-y-2');
+
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-2');
+                    copyBtn.classList.remove('bg-green-500');
+                    copyBtn.classList.add('bg-brand');
+                    if (textSpan) textSpan.innerText = originalText;
                 }, 2000);
             } catch (error) {
-                setDefaultState();
+                const textSpan = copyBtn.querySelector('span');
+                if (textSpan) textSpan.innerText = copyLabel;
             }
         });
     }
+
+    initHybridEmail();
 
     // Experience modals
     const modalTriggers = document.querySelectorAll('[data-modal-target]');
@@ -152,4 +169,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Active nav link on scroll (Scroll Spy)
+    const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"]');
+    const sectionTargets = document.querySelectorAll('section[id]');
+
+    const setActiveLink = (sectionId) => {
+        if (!sectionId) return;
+        navLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            const isActive = href === `#${sectionId}`;
+
+            if (isActive) {
+                link.classList.add('text-brand');
+                link.classList.remove('text-slate-600', 'text-slate-700');
+            } else {
+                link.classList.remove('text-brand');
+                link.classList.add(link.closest('#mobile-menu') ? 'text-slate-700' : 'text-slate-600');
+            }
+        });
+    };
+
+    const navObserver = new IntersectionObserver(
+        (entries) => {
+            const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+            if (!visibleEntries.length) return;
+
+            visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+            const mostVisible = visibleEntries[0];
+            setActiveLink(mostVisible.target.id);
+        },
+        {
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: [0.1, 0.25, 0.5, 0.75],
+        }
+    );
+
+    sectionTargets.forEach((section) => navObserver.observe(section));
 });
