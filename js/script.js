@@ -64,16 +64,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Shared obfuscated email decoder
+    const getDecodedEmail = () => {
+        const rotor = [19, 7, 23, 11, 5];
+        const obfuscatedEmail = [96, 110, 122, 100, 107, 61, 101, 120, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 120, 102];
+        return obfuscatedEmail
+            .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
+            .join('');
+    };
+
+    const getDecodedPhoneDisplay = () => {
+        const rotor = [19, 7, 23, 11, 5];
+        const obfuscatedPhone = [35, 48, 55, 61, 60, 51, 51, 47, 43, 54, 37, 39, 46, 51];
+        return obfuscatedPhone
+            .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
+            .join('');
+    };
+
+    const getDecodedPhoneHref = () => {
+        const rotor = [19, 7, 23, 11, 5];
+        const obfuscatedPhoneHref = [35, 48, 33, 50, 49, 43, 52, 33, 50, 61];
+        return obfuscatedPhoneHref
+            .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
+            .join('');
+    };
+
+    // Hydrate all static email links/text from obfuscated source
+    function initObfuscatedEmailLinks() {
+        const decodedEmail = getDecodedEmail();
+        document.querySelectorAll('[data-email-link]').forEach((link) => {
+            link.setAttribute('href', `mailto:${decodedEmail}`);
+        });
+        document.querySelectorAll('[data-email-text]').forEach((node) => {
+            node.textContent = decodedEmail;
+        });
+    }
+
+    function initObfuscatedPhoneLinks() {
+        const decodedPhoneDisplay = getDecodedPhoneDisplay();
+        const decodedPhoneHref = getDecodedPhoneHref();
+        document.querySelectorAll('[data-phone-link]').forEach((link) => {
+            link.setAttribute('href', `tel:${decodedPhoneHref}`);
+        });
+        document.querySelectorAll('[data-phone-text]').forEach((node) => {
+            node.textContent = decodedPhoneDisplay;
+        });
+    }
+
     // Hybrid Email Logic (Obfuscation)
     function initHybridEmail() {
         const container = document.getElementById('email-hybrid-container');
         if (!container) return;
 
-        const rotor = [19, 7, 23, 11, 5];
-        const obfuscatedEmail = [96, 110, 122, 100, 107, 61, 101, 120, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 120, 102];
-        const decodedEmail = obfuscatedEmail
-            .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
-            .join('');
+        const decodedEmail = getDecodedEmail();
 
         const copyLabel = container.getAttribute('data-copy-label') || 'Copier';
         const copiedLabel = container.getAttribute('data-copied-label') || 'Copie !';
@@ -119,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    initObfuscatedEmailLinks();
+    initObfuscatedPhoneLinks();
     initHybridEmail();
 
     // Experience modals
