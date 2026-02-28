@@ -70,29 +70,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container) return;
 
         const rotor = [19, 7, 23, 11, 5];
-        const obfuscatedEmail = [100, 110, 122, 100, 107, 61, 101, 104, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 104, 102];
+        const obfuscatedEmail = [96, 110, 122, 100, 107, 61, 101, 104, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 104, 102];
         const decodedEmail = obfuscatedEmail
             .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
             .join('');
 
-        const copyLabel = container.getAttribute('data-copy-label') || 'Copy';
-        const copiedLabel = container.getAttribute('data-copied-label') || 'Copied!';
-        const sendLabel = container.getAttribute('data-send-label') || 'Send email';
+        const copyLabel = container.getAttribute('data-copy-label') || 'Copier';
+        const copiedLabel = container.getAttribute('data-copied-label') || 'Copie !';
+        const sendLabel = container.getAttribute('data-send-label') || 'Envoyer email';
 
         container.innerHTML = `
-            <div class="inline-flex rounded-md shadow-lg isolate">
+            <div class="inline-flex rounded-md shadow-lg isolate bg-white/10 backdrop-blur-sm border border-white/20">
                 <button type="button" id="btn-copy-action"
-                    class="relative inline-flex items-center gap-x-2 rounded-l-md bg-brand px-5 py-3 text-sm font-bold text-white hover:bg-brand-dark focus:z-10 focus:outline-none transition-all">
+                    class="relative inline-flex items-center gap-x-2 rounded-l-md bg-transparent px-5 py-3 text-sm font-bold text-white hover:bg-white/20 focus:z-10 focus:outline-none transition-all">
                     <svg class="w-4 h-4" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg>
                     <span>${decodedEmail}</span>
                 </button>
                 <a href="mailto:${decodedEmail}"
-                    class="relative -ml-px inline-flex items-center rounded-r-md bg-brand px-4 py-3 text-white hover:bg-brand-dark focus:z-10 focus:outline-none transition-all border-l border-white/20"
+                    class="relative -ml-px inline-flex items-center rounded-r-md bg-transparent px-4 py-3 text-white hover:bg-white/20 focus:z-10 focus:outline-none transition-all border-l border-white/20"
                     aria-label="${sendLabel}">
                     <svg class="w-4 h-4" aria-hidden="true" focusable="false"><use href="#icon-send"></use></svg>
                 </a>
             </div>
-            <div id="copy-toast" class="absolute -top-10 left-1/2 -translate-x-1/2 translate-y-2 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded opacity-0 transition-all duration-300 pointer-events-none">
+            <div id="copy-toast" class="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded opacity-0 transition-opacity duration-300 pointer-events-none">
                 ${copiedLabel}
             </div>
         `;
@@ -104,22 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
         copyBtn.addEventListener('click', async () => {
             try {
                 await navigator.clipboard.writeText(decodedEmail);
+                toast.classList.remove('opacity-0', 'translate-y-2');
                 const textSpan = copyBtn.querySelector('span');
                 const originalText = textSpan ? textSpan.innerText : decodedEmail;
                 if (textSpan) textSpan.innerText = copiedLabel;
-                copyBtn.classList.add('bg-green-500');
-                copyBtn.classList.remove('bg-brand');
-                toast.classList.remove('opacity-0', 'translate-y-2');
 
                 setTimeout(() => {
                     toast.classList.add('opacity-0', 'translate-y-2');
-                    copyBtn.classList.remove('bg-green-500');
-                    copyBtn.classList.add('bg-brand');
                     if (textSpan) textSpan.innerText = originalText;
                 }, 2000);
             } catch (error) {
-                const textSpan = copyBtn.querySelector('span');
-                if (textSpan) textSpan.innerText = copyLabel;
+                console.error('Copy failed', error);
             }
         });
     }
@@ -180,11 +175,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const isActive = href === `#${sectionId}`;
 
             if (isActive) {
-                link.classList.add('text-brand');
-                link.classList.remove('text-slate-600', 'text-slate-700');
+                // Active link style
+                link.classList.add('text-brand', 'font-bold');
+                link.classList.remove('text-slate-600', 'text-slate-700', 'font-medium');
             } else {
-                link.classList.remove('text-brand');
-                link.classList.add(link.closest('#mobile-menu') ? 'text-slate-700' : 'text-slate-600');
+                // Default link style
+                link.classList.remove('text-brand', 'font-bold');
+                link.classList.add('font-medium');
+
+                if (link.closest('#mobile-menu')) {
+                    link.classList.add('text-slate-700');
+                } else {
+                    link.classList.add('text-slate-600');
+                }
             }
         });
     };
