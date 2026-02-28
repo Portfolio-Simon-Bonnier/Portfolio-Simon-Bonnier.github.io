@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container) return;
 
         const rotor = [19, 7, 23, 11, 5];
-        const obfuscatedEmail = [96, 110, 122, 100, 107, 61, 101, 104, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 104, 102];
+        const obfuscatedEmail = [96, 110, 122, 100, 107, 61, 101, 120, 101, 107, 122, 98, 101, 62, 69, 116, 106, 118, 98, 105, 61, 100, 120, 102];
         const decodedEmail = obfuscatedEmail
             .map((value, index) => String.fromCharCode(value ^ rotor[index % rotor.length]))
             .join('');
